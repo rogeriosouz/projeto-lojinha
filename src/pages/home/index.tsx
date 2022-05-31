@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import { Header } from '../../components/header';
 import { ProdutosPage } from '../../components/produtosPage';
 import { useFetch } from '../../hooks/useFethc';

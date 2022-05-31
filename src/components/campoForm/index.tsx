@@ -1,3 +1,5 @@
+import { ChangeEventHandler } from 'react';
+
 import {  
   ContaineCampo
 } from './style';
@@ -5,8 +7,8 @@ import {
 type Props = {
   nameLabel: string,
   typeCampo: string,
-  onChanger: any,
-  autofocus?: any
+  onChanger: ChangeEventHandler,
+  autofocus?: boolean
 }
 
 export function CampoForm(props: Props) {

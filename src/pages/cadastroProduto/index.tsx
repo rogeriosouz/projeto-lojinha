@@ -7,7 +7,6 @@ import { FlashMsg } from '../../components/flasMsg';
 import { TitleForms } from '../../components/titleForm';
 
 import axios from '../../services/axios';
-
 import voltar from '../../styles/img/voltar2.png';
 
 import {
@@ -20,9 +19,10 @@ import {
   NamePrice
 } from './style';
 
-type Categoria = {
+type Categorias = {
   categoria: string,
 }
+
 
 export function CadastroProduto() {
   const [inputName, setInputName] = useState('');
@@ -32,7 +32,7 @@ export function CadastroProduto() {
 
   const [errorMsg, setErrorMsg] = useState(['']);
   const [amostraError, setAmostraError] = useState(false);
-  const [categorias, setCategorias] = useState<Categoria[]>([]);
+  const [categorias, setCategorias] = useState<Categorias[]>([]);
   let navigate = useNavigate();
 
   useEffect(() => {

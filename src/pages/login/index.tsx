@@ -1,14 +1,16 @@
+import { useState } from 'react';
+import Cookies from 'js-cookie';
+import axios from '../../services/axios';
+import { validate } from 'email-validator';
+import { useNavigate } from 'react-router-dom';
+
 import { Header } from '../../components/header';
 import { CampoForm } from '../../components/campoForm';
-import { useState } from 'react';
 
 import { TitleForms } from '../../components/titleForm';
 import { ButtonForms } from '../../components/buttonForm';
 
 import { FlashMsg } from '../../components/flasMsg';
-import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom';
-import { validate } from 'email-validator';
  
 import {
   SecaoLogin,
@@ -16,9 +18,6 @@ import {
   Form,
   Link
 } from './style';
-import axios from '../../services/axios';
-
-
 
 export function Login() {
   const [inputEmail , setInputEmail] = useState('');

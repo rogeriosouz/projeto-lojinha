@@ -1,8 +1,9 @@
 import { ButtonForm } from './style';
+import { MouseEventHandler } from 'react';
 
 type Props = {
   name: string,
-  onClick: any,
+  onClick: MouseEventHandler,
 }
 
 export function ButtonForms(props: Props) {

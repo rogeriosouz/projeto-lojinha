@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import { ReactNode } from 'react';
 
 import {
   FlasMsgs  
 } from './style';
 
 type Props = {
-  children: any,
+  children: ReactNode,
   duration: number,
   cor: string,
 }
