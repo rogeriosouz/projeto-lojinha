@@ -15,8 +15,8 @@ type Produtos = {
 }
 
 export function Home() {
-  const { data, isFetching } = useFetch<Produtos[]>('/produto')
-  // testando
+  const { data, isFetching } = useFetch<Produtos[]>('/produto');
+
   return (
     <>
       <Header />

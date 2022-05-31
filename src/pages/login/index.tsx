@@ -66,8 +66,8 @@ export function Login() {
 
       axios.post('/login',user)
       .then(response => {
-        Cookies.set('id', response.data.id, { expires: 7 });
-        Cookies.set('name', response.data.name, { expires: 7 });
+        Cookies.set('id', response.data.id, { expires: 2 });
+        Cookies.set('name', response.data.name, { expires: 2 });
         navigate('/');
       }) .catch(erro => {
         setAmostrarErr(true);
