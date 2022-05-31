@@ -1,0 +1,44 @@
+import styled from 'styled-components';
+import * as cores from '../../config/colors';
+
+export const PrsonSecao = styled.section`
+  width: 100%;
+  min-height: 100vh;
+  margin-top: 50px;
+`;
+
+export const Conteudo = styled.div`
+  width: 700px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+
+  div {
+    width: 400px;
+    height: 300px;
+    padding: 10px;
+    background-color: ${cores.primaryColor};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      color: ${cores.whiteColor};
+    }
+
+    img {
+      width: 40%;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    div {
+      width: 300px;
+      height: 65px;
+    }
+  }
+
+`;
