@@ -11,6 +11,8 @@ export const Container = styled.div`
   justify-content: center;
   background-color: ${cores.whiteColor};
   border-radius: 5px;
+  margin-bottom: 20px;
+  margin-top: 40px;
 `;
 
 

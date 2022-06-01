@@ -16,6 +16,16 @@ export const Conteudo = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   margin: auto;
   gap: 10px;
+
+  padding: 10px;
+
+  @media (max-width: 648px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 437px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 

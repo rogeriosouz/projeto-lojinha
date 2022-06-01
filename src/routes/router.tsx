@@ -15,6 +15,7 @@ import { CadastroProduto } from '../pages/cadastroProduto';
 import { ProdutosAdm } from '../pages/amostraPostAdm';
 import { Categorias } from '../pages/categorias';
 import { CadastrarCategoria } from '../pages/cadastrarCategoria';
+import { Produto } from '../pages/produto';
 
 export function AppRouters() {
   return (
@@ -41,8 +42,9 @@ export function AppRouters() {
           ) : (
             <Route path='/adm' element={ <Admin /> } />
           )}
-          
+         
           <Route path='/' element={ <Home /> }/>
+          <Route path='/produto/:name' element={ <Produto /> }/>
         </Routes>
       </BrowserRouter>
     </>

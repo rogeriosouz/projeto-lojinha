@@ -7,7 +7,7 @@ export const HeaderCabecalho = styled.header`
   background-color: ${cores.primaryColor};
   position: fixed;
   top: 0;
-  border-bottom: 1px solid ${cores.detalsColor};
+  box-shadow: 0px 0px 4px 1px #00000063;
   z-index: 3;
 `;
 

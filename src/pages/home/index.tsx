@@ -1,4 +1,3 @@
-import Cookies from 'js-cookie';
 import { Header } from '../../components/header';
 import { ProdutosPage } from '../../components/produtosPage';
 import { useFetch } from '../../hooks/useFethc';
@@ -18,6 +17,7 @@ type Produtos = {
 export function Home() {
   const { data, isFetching } = useFetch<Produtos[]>('/produto');
 
+
   return (
     <>
       <Header />
@@ -35,11 +35,14 @@ export function Home() {
             <h1>Caregando....</h1>
           )}
           {data?.map(produto => (
-            <ProdutosPage 
-              img='img'
-              name={produto.name}
-              price={produto.prace}
-            />
+            <a href={`/produto/:${produto.name}`} 
+              key={produto.name}>
+                <ProdutosPage 
+                  img='img'
+                  name={produto.name}
+                  price={produto.prace}
+                />
+              </a>
           ))}
           
         </Conteudo>
