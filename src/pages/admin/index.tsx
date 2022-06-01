@@ -55,7 +55,7 @@ export function Admin() {
       }
       axios.post('/adminlogin', adm)
       .then(response => {
-        Cookies.set('idAdm', response.data.id, { expires: 2 });
+        Cookies.set('tokenAdm', response.data.token, { expires: 2 });
         navigate('/');
       })
       .catch(error => {

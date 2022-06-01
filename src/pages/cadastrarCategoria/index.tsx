@@ -49,7 +49,9 @@ export function CadastrarCategoria() {
       const categorias = {
         categoria
       }
-      axios.post(`/categoria/:${Cookies.get('idAdm')}`,categorias)
+      axios.post(`/categoria`,categorias, {
+        headers: { 'x-access-token': `Bearer ${Cookies.get('tokenAdm')}`}
+      })
       .then(response => {
         navigate('/categorias');
       })

@@ -32,7 +32,7 @@ export function AppRouters() {
               </>
           )}
 
-          {Cookies.get('idAdm') ? (
+          {Cookies.get('tokenAdm') ? (
             <>
               <Route path='/adm' element={ <ProdutosAdm /> } />
               <Route path='/cadastrarProduto' element={ <CadastroProduto /> } />

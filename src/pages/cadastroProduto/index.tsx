@@ -81,7 +81,9 @@ export function CadastroProduto() {
       }
 
       const id = Cookies.get('idAdm');
-      axios.post(`/produto/:${id}`, produtos)
+      axios.post(`/produto`, produtos, {
+        headers: { 'x-access-token': `Bearer ${Cookies.get('tokenAdm')}`}
+      })
       .then(response => {
         navigate('/adm');
       })
