@@ -1,4 +1,4 @@
-# projeto-lojinha-iniciante
+# 👀 projeto-lojinha-iniciante
 
 lojinha feita em react-ts com vite
 back-end feito em node-js, mongodb de base de dados
