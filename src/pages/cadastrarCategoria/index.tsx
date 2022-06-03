@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ButtonForms } from '../../components/buttonForm';
 import { CampoForm } from '../../components/campoForm';
@@ -23,8 +23,9 @@ export function CadastrarCategoria() {
   const [msgError, setMmsgError] = useState(['']);
   const [amostrarErro, setAmostrarErro] = useState(false);
   let navigate = useNavigate();
-  
-  function cadastrarCategoria(categoria: string) {
+
+  function handleSubmit(e: FormEvent, categoria: string) {
+    e.preventDefault();
 
     if(categoria === '') {
       setMmsgError(['Campo em branco!!']);
@@ -70,14 +71,10 @@ export function CadastrarCategoria() {
     }
   }
 
-  function handleSubmit(e: any) {
-    e.preventDefault();
-  }
-
   return (
     <SecaoCadastrarCategoria>
       <Conteudo>
-        <Form onSubmit={(e) => handleSubmit(e)}>
+        <Form onSubmit={(e) => handleSubmit(e, inputCategoria)}>
           <VoltarLink>
             <Link to='/categorias'>
               <img src={voltar} alt="voltar" />
@@ -98,7 +95,7 @@ export function CadastrarCategoria() {
           onChanger={(e: any) => setInputCategoria(e.target.value)} 
           />
 
-          <ButtonForms name='Cadastrar' onClick={() => cadastrarCategoria(inputCategoria)}/>
+          <ButtonForms name='Cadastrar' />
         </Form>
       </Conteudo>
     </SecaoCadastrarCategoria>
