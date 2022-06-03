@@ -69,7 +69,6 @@ export function Login() {
       .then(response => {
         Cookies.set('id', response.data.id, { expires: 2 });
         Cookies.set('name', response.data.name, { expires: 2 });
-        console.log(response.data)
         navigate('/');
       }) .catch(erro => {
         setAmostrarErr(true);
