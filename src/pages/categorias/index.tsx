@@ -1,6 +1,7 @@
-import { useFetch } from '../../hooks/useFethc';
 import voltar from '../../styles/img/voltar2.png';
 import { Link } from 'react-router-dom';
+import axios from '../../services/axios';
+import { useQuery } from 'react-query';
 
 import {
   SecaoCategorias,
@@ -13,7 +14,12 @@ type Categoria = {
 }
 
 export function Categorias() {
-  const { data: categorias, isFetching } = useFetch<Categoria[]>('/categoria');
+  const {  data: categorias, isFetching } = useQuery<Categoria[]>('categoria', async () => {
+    const response = await axios.get('/categoria');
+    return response.data
+  }, {
+    staleTime: 1000 * 60 // 1 minute
+  });
 
   return (
     <SecaoCategorias>

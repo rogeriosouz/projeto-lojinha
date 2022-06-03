@@ -1,12 +1,12 @@
 import { Header } from '../../components/header';
 import { Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
+import axios from '../../services/axios';
 
 import {
   SecaoPodutoAdm,
   Conteudo
 } from './style';
-import axios from '../../services/axios';
 
 type Produtos = {
   name: string,
@@ -21,6 +21,8 @@ export function ProdutosAdm() {
     const response = await axios.get('/produto');
 
     return response.data
+  }, {
+    staleTime: 1000 * 60 // 1 minute
   })
 
   return (
