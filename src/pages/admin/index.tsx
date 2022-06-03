@@ -101,7 +101,7 @@ export function Admin() {
             onChanger={(e: any) => setInputPasswrod(e.target.value)}
             />
 
-            <ButtonForms name='Logar' onClick={() => validarAmd(inputEmail, inputPassword)}/>
+            <ButtonForms name='Logar'/>
         </Form>
       </Conteudo>
     </SecaoAdmin>

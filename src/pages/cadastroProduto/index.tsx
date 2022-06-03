@@ -42,7 +42,10 @@ export function CadastroProduto() {
     })
   }, [])
 
-  function validarCadastro(name: string, prace: number, descricao: string, categoria: string) {
+
+  function handlesubmit(e: any, name: string, prace: number, descricao: string, categoria: string): void {
+    e.preventDefault();
+
     const erros = [];
 
     if(name === '' || prace === 0 || descricao === '') {
@@ -81,9 +84,8 @@ export function CadastroProduto() {
         "categoria": categoria
       }
 
-      const id = Cookies.get('idAdm');
       axios.post(`/produto`, produtos, {
-        headers: { 'x-access-token': `Bearer ${Cookies.get('tokenAdm')}`}
+        headers: { 'x-access-token': `${Cookies.get('tokenAdm')}`}
       })
       .then(response => {
         navigate('/adm');
@@ -103,14 +105,10 @@ export function CadastroProduto() {
 
   }
 
-  function handlesubmit(e: any) {
-    e.preventDefault();
-  }
-
   return (
     <SecaoCadastroProduc>
       <Conteudo>
-        <Form onSubmit={(e) => handlesubmit(e)} >
+        <Form onSubmit={(e) => handlesubmit(e, inputName, inputPrice, inputDescricao, inputCategoria)} >
           <VoltarLink>
             <Link to="/adm">
               <img src={voltar} alt="voltar" />
@@ -162,11 +160,7 @@ export function CadastroProduto() {
             </select>
           </OpcaoInput>
 
-          <ButtonForms 
-            name='Cadastra' 
-            onClick={() => validarCadastro(inputName, inputPrice, inputDescricao, inputCategoria)}
-          />
-
+          <ButtonForms name='Cadastra'/>
         </Form>
       </Conteudo>
     </SecaoCadastroProduc>
