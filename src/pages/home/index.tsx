@@ -1,14 +1,14 @@
 import { Header } from '../../components/header';
 import { ProdutosPage } from '../../components/produtosPage';
-import { useFetch } from '../../hooks/useFethc';
 import { Link } from 'react-router-dom';
-
-import fotoHomeIlustrativa from '../../styles/img/foto-ilustrativa.png';
+import { useQuery } from 'react-query';
 
 import {
   HomeSection,
   Conteudo,
 } from './style';
+
+import axios from '../../services/axios';
 
 type Produtos = {
   name: string,
@@ -16,7 +16,10 @@ type Produtos = {
 }
 
 export function Home() {
-  const { data, isFetching } = useFetch<Produtos[]>('/produto');
+  const { data, isFetching } = useQuery<Produtos[]>('produtosHome', async () => {
+    const response = await axios.get('/produto');
+    return response.data;
+  });
 
 
   return (
