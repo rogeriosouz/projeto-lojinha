@@ -3,7 +3,7 @@ import * as cores from '../../config/colors';
 
 
 export const Container = styled.div`
-  width: 200px;
+  max-width: 250px;
   height: 308px;
   display: flex;
   margin: auto;
@@ -22,6 +22,14 @@ export const Conteudo = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  :hover {
+    div {
+      button {
+        display: block;
+      }
+    }
+  }
+  
 `;
 
 export const Img = styled.div`
@@ -29,7 +37,6 @@ export const Img = styled.div`
   height: 60%;
   padding-top: 5px;
   background-color: ${cores.whiteColor};
-  border-bottom: 1px solid #0000001f;
 `;
 
 export const Button = styled.div`
@@ -38,8 +45,10 @@ export const Button = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  
 
   button {
+    display: none;
     width: 100%;
     height: 30px;
     border: 0;
@@ -58,6 +67,6 @@ export const Price = styled.div`
   padding-left: 10px;
 
   p {
-    color: green;
+    color: #000;
   }
 `;

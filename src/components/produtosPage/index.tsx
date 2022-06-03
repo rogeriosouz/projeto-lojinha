@@ -12,19 +12,18 @@ type Props = {
   price: number,
 }
 
-
 export function ProdutosPage(props: Props) {
   return (
     <Container>
       <Conteudo>
         <Img>
-          <p>img: {props.img}</p>
+          <p></p>
         </Img>
 
-        <h2>{props.name}</h2>
+        <p>{props.name}</p>
 
         <Price>
-          <p>R$: {props.price}</p>
+          <p>R$: {props.price} </p>
         </Price>
 
 
