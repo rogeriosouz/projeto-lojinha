@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ButtonForms } from '../../components/buttonForm';
 import { CampoForm } from '../../components/campoForm';
@@ -20,9 +20,9 @@ export function Admin() {
   const [amostraError, setAmostraError] = useState(false);
   let navigate = useNavigate();
 
- 
 
-  function validarAmd(email: string, password: string) {
+  function handlesubmit(e: FormEvent, email: string, password: string) {
+    e.preventDefault();
     const errors = [];
 
     if(email === '' || password === '') {
@@ -72,14 +72,10 @@ export function Admin() {
     }
   }
 
-  function handlesubmit(e: any) {
-    e.preventDefault();
-  }
-
   return (
     <SecaoAdmin>
       <Conteudo>
-        <Form onSubmit={(e) => handlesubmit(e)}>
+        <Form onSubmit={(e) => handlesubmit(e, inputEmail, inputPassword)}>
             <TitleForms title='Adm'/>
 
             {amostraError ? (

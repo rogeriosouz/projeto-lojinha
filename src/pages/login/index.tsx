@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import Cookies from 'js-cookie';
 import axios from '../../services/axios';
 import { validate } from 'email-validator';
@@ -26,7 +26,9 @@ export function Login() {
   const [msgErro, setMsgErro] = useState(['']);
   let navigate = useNavigate();
 
-  function validarLogin(email: string, password: string) {
+
+  function handlesubmit(e: FormEvent, email: string, password: string): void {
+    e.preventDefault();
     const erros = [];
 
     if(email === '' || password === '') {
@@ -82,11 +84,6 @@ export function Login() {
     } catch (error) {
       console.log(null);
     }
-
-  }
-
-  function handlesubmit(e: any) {
-    e.preventDefault();
   }
 
   return (
@@ -94,7 +91,7 @@ export function Login() {
       <Header />
       <SecaoLogin>
         <Conteudo>
-          <Form onSubmit={(e) => handlesubmit(e)}>
+          <Form onSubmit={(e) => handlesubmit(e, inputEmail, inputPassword)}>
             <TitleForms title={'LOGIN'}/>
 
             {amostrarErr ? (
@@ -120,11 +117,7 @@ export function Login() {
               <Link to='/register'>Register</Link>
             </LinkRegister>
 
-            <ButtonForms 
-              name='Loga'
-              onClick={() => validarLogin(inputEmail, inputPassword)}
-            /> 
-
+            <ButtonForms name='Loga'/> 
           </Form>
         </Conteudo>
       </SecaoLogin>

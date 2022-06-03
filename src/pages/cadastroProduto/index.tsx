@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ButtonForms } from '../../components/buttonForm';
 import { CampoForm } from '../../components/campoForm';
@@ -43,7 +43,7 @@ export function CadastroProduto() {
   }, [])
 
 
-  function handlesubmit(e: any, name: string, prace: number, descricao: string, categoria: string): void {
+  function handlesubmit(e: FormEvent, name: string, prace: number, descricao: string, categoria: string): void {
     e.preventDefault();
 
     const erros = [];

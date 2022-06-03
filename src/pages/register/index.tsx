@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { ButtonForms } from '../../components/buttonForm';
 import { CampoForm } from '../../components/campoForm';
 import { Header } from '../../components/header';
@@ -25,7 +25,9 @@ export function Register() {
   const [amostraError, setAmostraError] = useState(false);
   let navigate = useNavigate();
 
-  function validarECadastrar(name: string, email: string, password: string) {
+
+  function handlesubmit(e: FormEvent, name: string, email: string, password: string) {
+    e.preventDefault();
     const error = [];
 
     if(name === '' || email === '' || password === '') {
@@ -86,16 +88,12 @@ export function Register() {
     } 
   }
 
-  function handlesubmit(e: any) {
-    e.preventDefault();
-  }
-
   return (
     <>
       <Header />
       <SecaoRegister>
         <Conteudo>
-          <Form onSubmit={(e) => handlesubmit(e)} >
+          <Form onSubmit={(e) => handlesubmit(e, inputName, inputEmail, inputPasswod)} >
             <TitleForms title='REGISTER'/> 
 
             {amostraError ? (
@@ -125,10 +123,7 @@ export function Register() {
               onChanger={(e: any) => setInputPasswod(e.target.value)}
             />
 
-            <ButtonForms 
-              name='Register' 
-              onClick={() => validarECadastrar(inputName, inputEmail, inputPasswod)}
-            />
+            <ButtonForms name='Register' />
           </Form>
         </Conteudo>
       </SecaoRegister>

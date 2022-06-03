@@ -1,5 +1,4 @@
 import { ButtonForm } from './style';
-import { MouseEventHandler } from 'react';
 
 type Props = {
   name: string,
