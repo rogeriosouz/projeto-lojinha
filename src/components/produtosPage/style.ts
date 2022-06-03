@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import * as cores from '../../config/colors';
 
-
 export const Container = styled.div`
   max-width: 250px;
+  min-width: 230px;
   height: 308px;
   display: flex;
   margin: auto;
