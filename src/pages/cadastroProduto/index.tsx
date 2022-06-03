@@ -5,6 +5,7 @@ import { ButtonForms } from '../../components/buttonForm';
 import { CampoForm } from '../../components/campoForm';
 import { FlashMsg } from '../../components/flasMsg';
 import { TitleForms } from '../../components/titleForm';
+import { Link } from 'react-router-dom';
 
 import axios from '../../services/axios';
 import voltar from '../../styles/img/voltar2.png';
@@ -111,9 +112,9 @@ export function CadastroProduto() {
       <Conteudo>
         <Form onSubmit={(e) => handlesubmit(e)} >
           <VoltarLink>
-            <a href="/adm">
+            <Link to="/adm">
               <img src={voltar} alt="voltar" />
-            </a>
+            </Link>
           </VoltarLink>
           <TitleForms title='Cadastra Produto'/>
 

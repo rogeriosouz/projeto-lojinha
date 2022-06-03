@@ -1,7 +1,7 @@
 import {
   BrowserRouter,
   Routes,
-  Route
+  Route,
 } from 'react-router-dom';
 
 import { Home } from '../pages/home';
@@ -20,8 +20,8 @@ import { Produto } from '../pages/produto';
 export function AppRouters() {
   return (
     <>
-      <Header />
       <BrowserRouter>
+        <Header />
         <Routes>
           {Cookies.get('id') ? (
               <Route path='/person' element={ <Person /> } />

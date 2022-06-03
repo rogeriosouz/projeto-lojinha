@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import {
   LinkButtonn
 } from './style';
@@ -9,6 +11,8 @@ type Props = {
 
 export function LinkButton(props: Props) {
   return (
-    <LinkButtonn href={props.to}>{props.text}</LinkButtonn>
+    <LinkButtonn>
+      <Link to={props.to}>{props.text}</Link>
+    </LinkButtonn>
   );
 }

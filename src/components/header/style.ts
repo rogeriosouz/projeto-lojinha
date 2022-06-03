@@ -42,17 +42,23 @@ export const Conteudo = styled.div`
   }
 `;
 
-export const Linka = styled.a`
-  display: flex;
-  align-items: center;
-  justify-content:center;
-  :hover {
-    border-bottom: 2px solid ${cores.detalsColor};
+export const LinkLogin = styled.div`
+  transition: all 0.1s linear;
+  a {
+    color: ${cores.whiteColor};
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  color: ${cores.whiteColor};
-  border-bottom: 2px solid transparent;
-  transition: all 0.3s linear;
-  width: 100%;
+
+  :hover {
+    border-bottom: 2px solid #f00;
+  }
+  
   height: 100%;
-  text-align: center;
+  border-bottom: 2px solid ${cores.primaryColor};
+  
 `;

@@ -23,6 +23,18 @@ export const Table = styled.table`
 
     padding: 40px ;
 
+    a {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+    }
+
     thead {
       tr {
         th {
@@ -38,7 +50,7 @@ export const Table = styled.table`
       tr {
         td {
           border: 1px solid #000;
-          width: 300px;
+          max-width: 300px;
           color: ${cores.whiteColor};
           display: block;
           margin-bottom: 5px;
@@ -50,12 +62,14 @@ export const Table = styled.table`
     tfoot {
       tr {
         td {
-          width: 300px;
+          width: 200px;
           color: ${cores.whiteColor};
           padding: 10px 0px;
           margin-right: 10px;
 
-          a {
+          a { 
+            top: 90%;
+            left: 42px;
             padding: 4px 30px;
             border-radius: 1px;
 
@@ -73,6 +87,7 @@ export const Table = styled.table`
               box-shadow: 1px 1px 7px 2px #00000052;
             }
           }
+          
         }
       }
     }

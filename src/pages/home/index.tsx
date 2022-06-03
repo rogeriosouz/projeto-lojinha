@@ -1,6 +1,7 @@
 import { Header } from '../../components/header';
 import { ProdutosPage } from '../../components/produtosPage';
 import { useFetch } from '../../hooks/useFethc';
+import { Link } from 'react-router-dom';
 
 import {
   HomeSection,
@@ -35,14 +36,14 @@ export function Home() {
             <h1>Caregando....</h1>
           )}
           {data?.map(produto => (
-            <a href={`/produto/:${produto.name}`} 
+            <Link to={`/produto/:${produto.name}`} 
               key={produto.name}>
                 <ProdutosPage 
                   img='img'
                   name={produto.name}
                   price={produto.prace}
                 />
-              </a>
+              </Link>
           ))}
           
         </Conteudo>

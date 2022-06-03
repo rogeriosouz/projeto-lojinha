@@ -1,6 +1,6 @@
 import { Header } from '../../components/header';
-import { LinkButton } from '../../components/linkButton';
 import { useFetch } from '../../hooks/useFethc';
+import { Link } from 'react-router-dom';
 
 import {
   SecaoPodutoAdm,
@@ -31,7 +31,7 @@ export function ProdutosAdm() {
                 <tr>
                   <th>Name</th>
                   <th>price</th>
-                  <th><a href="/categorias">Categoria</a></th>
+                  <th><Link to="/categorias">Categoria</Link></th>
                 </tr>
               </thead>
 
@@ -50,7 +50,7 @@ export function ProdutosAdm() {
               <tfoot>
                 <tr>
                   <td>
-                    <LinkButton to='/cadastrarProduto' text='Cadastrar mais'/>
+                    <Link to='/cadastrarProduto'>Cadastrar mais</Link>
                   </td>
                 </tr>
               </tfoot>

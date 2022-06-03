@@ -1,8 +1,6 @@
-import { useEffect, useState } from 'react';
-import { LinkButton } from '../../components/linkButton';
 import { useFetch } from '../../hooks/useFethc';
-import axios from '../../services/axios';
 import voltar from '../../styles/img/voltar2.png';
+import { Link } from 'react-router-dom';
 
 import {
   SecaoCategorias,
@@ -21,27 +19,31 @@ export function Categorias() {
   return (
     <SecaoCategorias>
       <Conteudo>
+        <VoltarLink>
+          
+        </VoltarLink>
         <Table>
-          <VoltarLink>
-            <a href="/adm">
-              <img src={voltar} alt="voltar" />
-            </a>
-          </VoltarLink>
           <thead>
+              <tr>
+                <td>
+                  <Link to="/adm">
+                    <img src={voltar} alt="voltar" />
+                  </Link>
+                </td>
+              </tr>
             <tr>
               <th>Categorias</th>
             </tr>
           </thead>
 
           <tbody>
-            
             <tr>
               <>
               {isFetching && (
                 <td>Caregando...</td>
               )}
               {categorias?.map(item => (
-                <td>{item.categoria}</td>
+                <td key={item.categoria}>{item.categoria}</td>
                 ))}
               </>
             </tr>
@@ -50,7 +52,7 @@ export function Categorias() {
           <tfoot>
             <tr>
               <td>
-                <LinkButton to='/cadastrarCategoria' text='Cadastrar mas'/>
+                <Link to='/cadastrarCategoria'>Cadastrar mas</Link>
               </td>
             </tr>
           </tfoot>

@@ -40,7 +40,7 @@ export const Form = styled.form`
   }
 `;
 
-export const Link = styled.div`
+export const LinkRegister = styled.div`
   width: 100%;
   display: flex;
   align-items: center;

@@ -5,6 +5,7 @@ import { ButtonForms } from '../../components/buttonForm';
 import { CampoForm } from '../../components/campoForm';
 import { FlashMsg } from '../../components/flasMsg';
 import { TitleForms } from '../../components/titleForm';
+import { Link } from 'react-router-dom';
 import axios from '../../services/axios';
 
 import voltar from '../../styles/img/voltar2.png';
@@ -78,9 +79,9 @@ export function CadastrarCategoria() {
       <Conteudo>
         <Form onSubmit={(e) => handleSubmit(e)}>
           <VoltarLink>
-            <a href="/categorias">
+            <Link to='/categorias'>
               <img src={voltar} alt="voltar" />
-            </a>
+            </Link>
           </VoltarLink>
           <TitleForms title='categorias'/>
 

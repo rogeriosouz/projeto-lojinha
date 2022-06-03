@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Cookies from 'js-cookie';
 import axios from '../../services/axios';
 import { validate } from 'email-validator';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { Header } from '../../components/header';
 import { CampoForm } from '../../components/campoForm';
@@ -16,7 +16,7 @@ import {
   SecaoLogin,
   Conteudo,
   Form,
-  Link
+  LinkRegister
 } from './style';
 
 export function Login() {
@@ -115,9 +115,9 @@ export function Login() {
               onChanger={(e: any) => setInputPassword(e.target.value)} 
             />
 
-            <Link>
-              <a href="/register">Register</a>
-            </Link>
+            <LinkRegister>
+              <Link to='/register'>Register</Link>
+            </LinkRegister>
 
             <ButtonForms 
               name='Loga'
