@@ -69,8 +69,8 @@ export function Register() {
       }
       axios.post('/register', user)
       .then(response => {
-        Cookies.set('id', response.data.id, { expires: 7 });
-        Cookies.set('name', name, { expires: 7 });
+        Cookies.set('id', response.data.id, { expires: 2 });
+        Cookies.set('name', name, { expires: 2 });
         navigate('/');
       }).catch(err => {
         setMsgErrors(err.response.data.Errors);

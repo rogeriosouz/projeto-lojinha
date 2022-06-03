@@ -8,8 +8,8 @@ export const PrsonSecao = styled.section`
 `;
 
 export const Conteudo = styled.div`
-  width: 700px;
-  height: 100vh;
+  max-width: 700px;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
