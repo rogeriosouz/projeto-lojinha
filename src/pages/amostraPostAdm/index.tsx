@@ -1,11 +1,12 @@
 import { Header } from '../../components/header';
-import { useFetch } from '../../hooks/useFethc';
 import { Link } from 'react-router-dom';
+import { useQuery } from 'react-query';
 
 import {
   SecaoPodutoAdm,
   Conteudo
 } from './style';
+import axios from '../../services/axios';
 
 type Produtos = {
   name: string,
@@ -16,7 +17,11 @@ type Produtos = {
 
 
 export function ProdutosAdm() {
-  const { data, isFetching } = useFetch<Produtos[]>('http://localhost:3334/produto');
+  const { data, isFetching } = useQuery<Produtos[]>('produtos', async () => {
+    const response = await axios.get('/produto');
+
+    return response.data
+  })
 
   return (
     <>
