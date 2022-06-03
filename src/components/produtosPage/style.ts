@@ -10,7 +10,6 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${cores.whiteColor};
-  border-radius: 5px;
   margin-bottom: 20px;
   margin-top: 40px;
 `;
@@ -31,7 +30,6 @@ export const Img = styled.div`
   padding-top: 5px;
   background-color: ${cores.whiteColor};
   border-bottom: 1px solid #0000001f;
-  border-radius: 5px 5px 0px 0px;
 `;
 
 export const Button = styled.div`
@@ -44,9 +42,8 @@ export const Button = styled.div`
   button {
     width: 100%;
     height: 30px;
-    border-radius: 0px 0px 5px 5px;
     border: 0;
-    background-color: green;
+    background-color: ${cores.primaryColor};
     color: ${cores.whiteColor};
 
     :hover {

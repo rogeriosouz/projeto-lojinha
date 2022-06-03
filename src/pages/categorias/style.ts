@@ -3,8 +3,9 @@ import * as cores from '../../config/colors';
 
 export const SecaoCategorias = styled.section`
   width: 100%;
-  height: 100vh;
-  margin-top: 50px;
+  min-height: 100vh;
+  margin-top: 70px;
+  margin-bottom: 20px;
 `;
 
 export const Conteudo = styled.div`
@@ -92,19 +93,4 @@ export const Table = styled.table`
       }
     }
 
-`;
-
-
-export const VoltarLink = styled.div`
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  a {
-
-    img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-    }
-  }
 `;

@@ -7,7 +7,6 @@ export const HeaderCabecalho = styled.header`
   background-color: ${cores.primaryColor};
   position: fixed;
   top: 0;
-  box-shadow: 0px 0px 4px 1px #00000063;
   z-index: 3;
 `;
 
@@ -55,7 +54,7 @@ export const LinkLogin = styled.div`
   }
 
   :hover {
-    border-bottom: 2px solid #f00;
+    border-bottom: 2px solid ${cores.whiteColor};
   }
   
   height: 100%;

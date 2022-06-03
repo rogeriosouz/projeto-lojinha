@@ -3,13 +3,14 @@ import * as cores from '../../config/colors';
 
 export const SecaoPodutoAdm = styled.section`
   width: 100%;
-  height: 100vh;
-  margin-top: 50px;
+  min-height: 100vh;
+  margin-top: 70px;
+  margin-bottom: 20px;
 `;
 
 export const Conteudo = styled.div`
   max-width: 700px;
-  height: 100vh;
+  min-height: 100vh;
   margin: auto;
 
   display: flex;
@@ -18,6 +19,7 @@ export const Conteudo = styled.div`
   
   table {
     background-color: ${cores.primaryColor};
+
     thead {
       display: flex;
       flex-direction: column;
@@ -50,6 +52,7 @@ export const Conteudo = styled.div`
       align-items: flex-start;
       tr {
         td {
+          padding: 5px;
           border: 1px solid #000;
           width: 170px;
           color: ${cores.whiteColor};

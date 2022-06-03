@@ -3,11 +3,11 @@ import { ProdutosPage } from '../../components/produtosPage';
 import { useFetch } from '../../hooks/useFethc';
 import { Link } from 'react-router-dom';
 
+import fotoHomeIlustrativa from '../../styles/img/foto-ilustrativa.png';
+
 import {
   HomeSection,
   Conteudo,
-  ImgHome,
-  Categorias
 } from './style';
 
 type Produtos = {
@@ -24,13 +24,6 @@ export function Home() {
       <Header />
       
       <HomeSection>
-        <ImgHome></ImgHome>
-
-        <Categorias>
-          <div>
-            categorias
-          </div>
-        </Categorias>
         <Conteudo>
           {isFetching && (
             <h1>Caregando....</h1>

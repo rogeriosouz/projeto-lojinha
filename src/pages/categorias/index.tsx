@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 import {
   SecaoCategorias,
   Conteudo,
-  Table,
-  VoltarLink
+  Table
 } from './style';
 
 type Categoria = {
@@ -19,9 +18,6 @@ export function Categorias() {
   return (
     <SecaoCategorias>
       <Conteudo>
-        <VoltarLink>
-          
-        </VoltarLink>
         <Table>
           <thead>
               <tr>
