@@ -1,15 +1,14 @@
 import Cookies from 'js-cookie';
 import { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useQueryClient } from 'react-query';
 import { ButtonForms } from '../../components/buttonForm';
 import { CampoForm } from '../../components/campoForm';
 import { FlashMsg } from '../../components/flasMsg';
 import { TitleForms } from '../../components/titleForm';
 import { Link } from 'react-router-dom';
 import axios from '../../services/axios';
-
 import voltar from '../../styles/img/voltar2.png';
-
 
 import {
   SecaoCadastrarCategoria,
@@ -18,15 +17,23 @@ import {
   VoltarLink
 } from './style';
 
+
+
 export function CadastrarCategoria() {
   const [inputCategoria, setInputCategoria ] = useState('');
   const [msgError, setMmsgError] = useState(['']);
   const [amostrarErro, setAmostrarErro] = useState(false);
   let navigate = useNavigate();
 
+  const client = useQueryClient();
+
+  async function invalidate() {
+    await client.invalidateQueries(['categorias']);
+  }
+
   function handleSubmit(e: FormEvent, categoria: string) {
     e.preventDefault();
-
+   
     if(categoria === '') {
       setMmsgError(['Campo em branco!!']);
       setAmostrarErro(true);
@@ -46,17 +53,18 @@ export function CadastrarCategoria() {
       }, 5000);
       return;
     }
-
     try {
       const categorias = {
         categoria
       }
       axios.post(`/categoria`,categorias, {
-        headers: { 'x-access-token': `Bearer ${Cookies.get('tokenAdm')}`}
+        headers: { 'x-access-token': `${Cookies.get('tokenAdm')}`}
       })
-      .then(response => {
+      .then((response) => {
+        invalidate(); 
         navigate('/categorias');
       })
+
       .catch(error => {
         setMmsgError(error.response.data.Errors);
         setAmostrarErro(true);

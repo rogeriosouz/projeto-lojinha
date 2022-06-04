@@ -8,18 +8,18 @@ import {
   Conteudo
 } from './style';
 
-type Produtos = {
+
+export type Produtos = {
   name: string,
   prace: number,
   categoria: string,
-  _id: string
+  _id?: string
 }
 
 
 export function ProdutosAdm() {
   const { data, isFetching } = useQuery<Produtos[]>('produtos', async () => {
     const response = await axios.get('/produto');
-
     return response.data
   }, {
     staleTime: 1000 * 60 // 1 minute

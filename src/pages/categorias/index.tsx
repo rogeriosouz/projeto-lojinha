@@ -9,12 +9,12 @@ import {
   Table
 } from './style';
 
-type Categoria = {
+export type Categoria = {
   categoria: string,
 }
 
 export function Categorias() {
-  const {  data: categorias, isFetching } = useQuery<Categoria[]>('categoria', async () => {
+  const {  data, isFetching } = useQuery<Categoria[]>('categorias', async () => {
     const response = await axios.get('/categoria');
     return response.data
   }, {
@@ -44,7 +44,7 @@ export function Categorias() {
               {isFetching && (
                 <td>Caregando...</td>
               )}
-              {categorias?.map(item => (
+              {data?.map(item => (
                 <td key={item.categoria}>{item.categoria}</td>
                 ))}
               </>

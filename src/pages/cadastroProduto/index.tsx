@@ -19,10 +19,12 @@ import {
   OpcaoInput,
   NamePrice
 } from './style';
+import { useQueryClient } from 'react-query';
 
 type Categorias = {
   categoria: string,
 }
+
 
 
 export function CadastroProduto() {
@@ -42,12 +44,16 @@ export function CadastroProduto() {
     })
   }, [])
 
+  const client = useQueryClient();
+
+  async function invalidate() {
+    await client.invalidateQueries('produtos');
+  }
 
   function handlesubmit(e: FormEvent, name: string, prace: number, descricao: string, categoria: string): void {
     e.preventDefault();
-
     const erros = [];
-
+    
     if(name === '' || prace === 0 || descricao === '') {
       setErrorMsg(['Campo em Branco!!']);
       setAmostraError(true);
@@ -88,6 +94,7 @@ export function CadastroProduto() {
         headers: { 'x-access-token': `${Cookies.get('tokenAdm')}`}
       })
       .then(response => {
+        invalidate();
         navigate('/adm');
       })
       .catch(error => {

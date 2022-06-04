@@ -10,7 +10,7 @@ export const SecaoCategorias = styled.section`
 
 export const Conteudo = styled.div`
   max-width: 700px;
-  height: 100vh;
+  min-height: 100vh;
   margin: auto;
 
   display: flex;
