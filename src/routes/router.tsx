@@ -16,6 +16,7 @@ import { ProdutosAdm } from '../pages/amostraPostAdm';
 import { Categorias } from '../pages/categorias';
 import { CadastrarCategoria } from '../pages/cadastrarCategoria';
 import { Produto } from '../pages/produto';
+import { ProdutosPesquisa } from '../pages/produtoPesquisa';
 
 export function AppRouters() {
   return (
@@ -44,6 +45,9 @@ export function AppRouters() {
           )}
          
           <Route path='/' element={ <Home /> }/>
+
+          <Route path='/produtoPesquisa/:categoria' element={ <ProdutosPesquisa /> }/>
+
           <Route path='/produto/:name' element={ <Produto /> }/>
         </Routes>
       </BrowserRouter>

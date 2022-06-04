@@ -8,12 +8,25 @@ import {
   Conteudo,
   LinkLogin,
   MenuHamburque,
-  Logo
+  Logo,
 } from './style';
+
 import { MenuLaterall } from '../menuLateral/style';
+import { useQuery } from 'react-query';
+import axios from '../../services/axios';
+import { LinkMenuLateral } from '../linkMenuLateral';
+
+type Categoria = {
+  categoria: string
+}
 
 export function Header() {
   const [menuLatera, setMenuLateral] = useState(false);
+
+  const { data } = useQuery<Categoria[]>('categoriaHome', async () => {
+    const response = await axios.get('/categoria');
+    return response.data
+  })
 
   return (
     <>
@@ -44,8 +57,18 @@ export function Header() {
       </HeaderCabecalho>
       {menuLatera && (
         <MenuLaterall>
-          <h1>categorias...</h1>
-          <Link to='/'>Home</Link>
+          <LinkMenuLateral 
+            click={() => setMenuLateral(false)} 
+            to='/' 
+            text={'Home'}
+          />
+          {data?.map(cate => (
+            <LinkMenuLateral 
+              click={() => setMenuLateral(false)} 
+              key={cate.categoria} to={`/produtoPesquisa/:${cate.categoria}`} 
+              text={cate.categoria} 
+            />
+          ))}
         </MenuLaterall>
       )}
       

@@ -9,7 +9,7 @@ export const MenuLaterall = styled.div`
   min-width: 80%;
   height: 100%;
   background-color: #dfdfdf;
-  
+
   h1 {
     width: 100%;
     height: 40px;
