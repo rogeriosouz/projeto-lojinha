@@ -4,8 +4,7 @@ import * as cores from '../../config/colors';
 export const SecaoPodutoAdm = styled.section`
   width: 100%;
   min-height: 100vh;
-  margin-top: 70px;
-  margin-bottom: 20px;
+  background-color: #dfdfdf;
 `;
 
 export const Conteudo = styled.div`
@@ -18,7 +17,8 @@ export const Conteudo = styled.div`
   align-items: center;
   
   table {
-    background-color: ${cores.primaryColor};
+    background-color: ${cores.whiteColor};
+    border-radius: 3px;
 
     thead {
       display: flex;
@@ -29,14 +29,15 @@ export const Conteudo = styled.div`
       tr {
         th {
           height: 30px;
-          border: 1px solid #000;
+          border: 1px solid ${cores.primaryDarkColor};
+          border-radius: 3px;
           width: 170px;
-          color: ${cores.whiteColor};
+          color: ${cores.primaryDarkColor};
           padding: 2px;
           margin-right: 10px;
 
           a {
-            color: blue;
+            color: ${cores.primaryColor};
             cursor: pointer;
             :hover {
               text-decoration: underline;
@@ -53,9 +54,10 @@ export const Conteudo = styled.div`
       tr {
         td {
           padding: 5px;
-          border: 1px solid #000;
+          border-radius: 3px;
+          border: 1px solid ${cores.primaryDarkColor};
           width: 170px;
-          color: ${cores.whiteColor};
+          color: ${cores.primaryDarkColor};
           margin-right: 10px;
         }
       }
@@ -80,7 +82,7 @@ export const Conteudo = styled.div`
 
             height: 25px;
             background-color: ${cores.whiteColor};
-            color: ${cores.primaryColor};
+            color: ${cores.primaryDarkColor};
             border: 1px solid ${cores.primaryDarkColor};
 
             :hover {

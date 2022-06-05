@@ -13,17 +13,13 @@ export const Conteudo = styled.div`
   max-width: 700px;
   display: grid;
   padding-top: 20px;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   margin: auto;
-  gap: 10px;
+  gap: 10px 30px;
 
   padding: 10px;
 
-  @media (max-width: 648px) {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media (max-width: 437px) {
+  @media (max-width: 518px) {
     grid-template-columns: 1fr;
   }
 `;

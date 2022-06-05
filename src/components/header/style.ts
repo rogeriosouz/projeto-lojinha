@@ -35,9 +35,11 @@ export const Conteudo = styled.div`
       width: 35px;
       border-radius: 50%;
       object-fit: cover;
-      border:  2px solid ${cores.whiteColor};
+      border: 2px solid ${cores.primaryColor};
+      
       :hover {
-        border:  2px solid ${cores.primaryDarkColor};
+        border: 0.5px solid ${cores.primaryColor};
+        box-shadow: px 2px 14px 1px #00000057; 
       }
       transition: all 0.2s linear;
     }

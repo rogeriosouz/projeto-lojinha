@@ -1,4 +1,4 @@
-import voltar from '../../styles/img/voltar2.png';
+import voltar from '../../styles/img/voltar3.png';
 import { Link } from 'react-router-dom';
 import axios from '../../services/axios';
 import { useQuery } from 'react-query';
@@ -6,7 +6,9 @@ import { useQuery } from 'react-query';
 import {
   SecaoCategorias,
   Conteudo,
-  Table
+  Table,
+  ImgLink,
+  LinkButtonTable
 } from './style';
 
 export type Categoria = {
@@ -27,11 +29,11 @@ export function Categorias() {
         <Table>
           <thead>
               <tr>
-                <td>
+                <ImgLink>
                   <Link to="/adm">
                     <img src={voltar} alt="voltar" />
                   </Link>
-                </td>
+                </ImgLink>
               </tr>
             <tr>
               <th>Categorias</th>
@@ -53,9 +55,9 @@ export function Categorias() {
 
           <tfoot>
             <tr>
-              <td>
+              <LinkButtonTable>
                 <Link to='/cadastrarCategoria'>Cadastrar mas</Link>
-              </td>
+              </LinkButtonTable>
             </tr>
           </tfoot>
         </Table>
