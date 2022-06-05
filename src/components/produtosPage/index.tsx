@@ -7,7 +7,6 @@ import {
 } from './style';
 
 type Props = {
-  img: string, 
   name: string, 
   price: number,
 }
@@ -17,7 +16,7 @@ export function ProdutosPage(props: Props) {
     <Container>
       <Conteudo>
         <Img>
-          <p></p>
+          <img src={`http://source.unsplash.com/random/200x200?r=${props.name}`} alt="img" />
         </Img>
 
         <p>{props.name}</p>

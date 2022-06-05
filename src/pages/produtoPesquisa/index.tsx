@@ -51,7 +51,6 @@ export function ProdutosPesquisa() {
                   <ProdutosPage 
                     name={item.name}
                     price={item.prace}
-                    img='none'
                   />
                 </Link>
               ))}

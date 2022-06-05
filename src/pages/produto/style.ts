@@ -6,6 +6,7 @@ export const SecaoProduto = styled.section`
   width: 100%;
   min-height: 100vh;
   margin-top: 50px;
+  background: #dfdfdf;
 `;
 
 export const Conteudo = styled.div`
@@ -17,9 +18,9 @@ export const Conteudo = styled.div`
   align-items: center;
 
   div {
-    width: 300px;
-    height: 350px;
-    background-color: ${cores.primaryColor};
+    max-width: 350px;
+    height: 450px;
+    background-color: ${cores.whiteColor};
     text-align:center;
     border-radius: 3px;
     display: flex;
@@ -30,33 +31,37 @@ export const Conteudo = styled.div`
 `
 
 export const ConteudoNameDescricao = styled.div`
-
+  width: 100%;
   h2 {
-    color: ${cores.whiteColor}; 
+    color: ${cores.primaryDarkColor}; 
   }
 
   p {
-    color: ${cores.whiteColor}; 
+    color: ${cores.primaryDarkColor}; 
   }
 
 `;
 
 export const Dinhero = styled.div` 
+  width: 100%;
   p {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    color: ${cores.seccessColor};
+    color: ${cores.primaryDarkColor};
     padding-left: 20px;
   }
 `;
 
 export const ImgConfig = styled.div`
   background-color: #dfdfdf;
+  width: 100%;
 
-  p {
-    color: ${cores.whiteColor}; 
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `;

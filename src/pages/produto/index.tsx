@@ -36,7 +36,7 @@ export function Produto() {
         <Conteudo>
           <div>
             <ImgConfig>
-              <p>img</p>
+              <img src={`http://source.unsplash.com/random/200x200?r=${data?.name}`} />
             </ImgConfig>
 
             <ConteudoNameDescricao>

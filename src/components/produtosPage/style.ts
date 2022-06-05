@@ -35,8 +35,13 @@ export const Conteudo = styled.div`
 export const Img = styled.div`
   width: 100%;
   height: 60%;
-  padding-top: 5px;
   background-color: ${cores.whiteColor};
+
+  img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+  }
 `;
 
 export const Button = styled.div`

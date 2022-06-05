@@ -27,6 +27,9 @@ export function Home() {
       <Header />
       
       <HomeSection>
+        <div>
+          categorias
+        </div>
         <Conteudo>
           {isFetching && (
             <h1>Caregando....</h1>
@@ -35,7 +38,6 @@ export function Home() {
             <Link to={`/produto/:${produto.name}`} 
               key={produto.name}>
                 <ProdutosPage 
-                  img='img'
                   name={produto.name}
                   price={produto.prace}
                 />
