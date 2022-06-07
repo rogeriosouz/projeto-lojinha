@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
-import imgHamMenu from '../../styles/img/hamburger_button_menu_icon2.png';
 
 import {
   HeaderCabecalho,
@@ -15,6 +14,8 @@ import { MenuLaterall } from '../menuLateral/style';
 import { useQuery } from 'react-query';
 import axios from '../../services/axios';
 import { LinkMenuLateral } from '../linkMenuLateral';
+import { DiCreativecommons } from "react-icons/di";
+import { AiOutlineMenuUnfold, AiOutlineMenuFold, AiFillHome } from 'react-icons/all' 
 
 type Categoria = {
   categoria: string
@@ -33,12 +34,25 @@ export function Header() {
       <HeaderCabecalho>
         <Conteudo>
           <MenuHamburque>
-              <img src={imgHamMenu} alt="hamimg" onClick={() => setMenuLateral(!menuLatera)} />
+              {menuLatera ? (
+                <AiOutlineMenuFold 
+                fontSize={40}
+                color="#fff" 
+                onClick={() => setMenuLateral(!menuLatera)}
+                />
+              ) : (
+                <AiOutlineMenuUnfold 
+                fontSize={40}
+                color="#fff" 
+                onClick={() => setMenuLateral(!menuLatera)}
+                />
+              )}
+              
           </MenuHamburque>
 
           <Logo>
             <Link to="/">
-              <h2>LOGO</h2>
+              <DiCreativecommons fontSize={50} color='#fff'/>
             </Link>
           </Logo>
 
@@ -60,7 +74,9 @@ export function Header() {
           <LinkMenuLateral 
             click={() => setMenuLateral(false)} 
             to='/' 
-            text={'Home'}
+            text={(
+              <AiFillHome />
+            )}
           />
           {data?.map(cate => (
             <LinkMenuLateral 

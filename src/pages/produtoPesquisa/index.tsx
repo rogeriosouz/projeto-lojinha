@@ -1,5 +1,6 @@
 import { useQuery } from 'react-query';
 import { Link, useParams } from 'react-router-dom';
+import { Categorias } from '../../components/categorias';
 
 import { Header } from '../../components/header';
 import { ProdutosPage } from '../../components/produtosPage';
@@ -39,6 +40,7 @@ export function ProdutosPesquisa() {
   return (
     <> 
       <Header />
+      <Categorias />
       <PesquisaProdutoSection>
         <Conteudo>
           {isFetching ? (

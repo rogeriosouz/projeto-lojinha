@@ -4,7 +4,7 @@ import { LinkDoMenu } from './style';
 
 type Props = {
   to: string,
-  text: string
+  text: string | any,
   click?: MouseEventHandler
 }
 

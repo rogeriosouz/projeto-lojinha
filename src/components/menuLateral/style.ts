@@ -17,7 +17,7 @@ export const MenuLaterall = styled.div`
     z-index: 2;
   }
 
-  @media (min-width: 360px) {
+  @media (min-width: 500px) {
     display: none;
   }
     

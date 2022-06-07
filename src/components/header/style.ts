@@ -11,8 +11,8 @@ export const HeaderCabecalho = styled.header`
 `;
 
 export const Conteudo = styled.div`
-  width: 70%;
-  @media (max-width: 360px) {
+  width: 81%;
+  @media (max-width: 500px) {
     width: 100%;
   }
   height:100%;
@@ -64,7 +64,6 @@ export const LinkLogin = styled.div`
   
   height: 100%;
   border-bottom: 2px solid ${cores.primaryColor};
-  
 `;
 
 
@@ -74,17 +73,16 @@ export const MenuHamburque = styled.div`
     height: 50px;
   }
   cursor: pointer;
-
   display: none;
 
-  @media (max-width: 360px) {
+  @media (max-width: 500px) {
     display: block;
   }
 
 `;
 
 export const Logo = styled.div`
-  @media (max-width: 360px) {
+  @media (max-width: 500px) {
     display: none;
   }
 `;
