@@ -1,5 +1,5 @@
-export const primaryColor = '#7208DB';
-/* #00DDE0 //// #01BDF0  #FF5745 #7588E0 #01DB3B df538b  #323B61*/
+export const primaryColor = '#FF5745';
+/* #00DDE0 //// #01BDF0  #FF5745 #7588E0 #01DB3B  #8700DB df538b  #323B61*/
 export const primaryDarkColor = '#00161F';
 export const whiteColor = '#ffff';
 export const secondColorr = '#0B76D9';

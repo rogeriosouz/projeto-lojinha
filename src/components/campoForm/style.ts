@@ -4,7 +4,6 @@ import * as cores from '../../config/colors';
 export const ContaineCampo = styled.div`
   width: 100%;
   height: 100%;
-
   margin-bottom: 20px;
 
   input {
@@ -14,8 +13,8 @@ export const ContaineCampo = styled.div`
     font-size: 1.3em;
     padding: 5px;
     border-radius: 3px;
-    border: 1px solid ${cores.secondColorr};
-
+    border: 1px solid ${cores.primaryColor};
+    
     :hover {
       border: 1px solid ${cores.primaryDarkColor};
     }
@@ -25,6 +24,6 @@ export const ContaineCampo = styled.div`
     display: block;
     font-size: 1.3em;
     margin-bottom: 4px;
-    color: ${cores.whiteColor};
+    color: ${props => props.color};
   }
 `;

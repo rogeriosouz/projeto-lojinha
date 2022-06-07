@@ -1,7 +1,10 @@
-import voltar from '../../styles/img/voltar3.png';
 import { Link } from 'react-router-dom';
-import axios from '../../services/axios';
 import { useQuery } from 'react-query';
+import { IoMdArrowBack } from "react-icons/io";
+
+import * as cores from '../../config/colors';
+
+import axios from '../../services/axios';
 
 import {
   SecaoCategorias,
@@ -31,7 +34,7 @@ export function Categorias() {
               <tr>
                 <ImgLink>
                   <Link to="/adm">
-                    <img src={voltar} alt="voltar" />
+                    <IoMdArrowBack fontSize={40} color={cores.primaryColor}/>
                   </Link>
                 </ImgLink>
               </tr>

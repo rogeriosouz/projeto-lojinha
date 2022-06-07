@@ -1,7 +1,9 @@
 import { useQuery } from 'react-query';
 import { Link, useParams } from 'react-router-dom';
+
 import { Header } from '../../components/header';
 import { ProdutosPage } from '../../components/produtosPage';
+
 import axios from '../../services/axios';
 
 import {

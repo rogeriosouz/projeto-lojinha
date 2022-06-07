@@ -1,20 +1,23 @@
 import { useState, FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { validate } from 'email-validator';
+import Cookies from 'js-cookie';
+
 import { ButtonForms } from '../../components/buttonForm';
 import { CampoForm } from '../../components/campoForm';
 import { Header } from '../../components/header';
 import { TitleForms } from '../../components/titleForm';
-import axios from '../../services/axios';
-import { useNavigate } from 'react-router-dom';
+import { FlashMsg } from '../../components/flasMsg';
 
-import { validate } from 'email-validator';
-import Cookies from 'js-cookie';
+import axios from '../../services/axios';
+import * as cores from '../../config/colors';
+
 
 import {
   SecaoRegister,
   Conteudo,
   Form
 } from './style';
-import { FlashMsg } from '../../components/flasMsg';
 
 export function Register() {
   const [inputEmail, setInputEmail] = useState('');
@@ -94,7 +97,7 @@ export function Register() {
       <SecaoRegister>
         <Conteudo>
           <Form onSubmit={(e) => handlesubmit(e, inputName, inputEmail, inputPasswod)} >
-            <TitleForms title='REGISTER'/> 
+            <TitleForms title='REGISTER' color={cores.primaryColor}/> 
 
             {amostraError ? (
               <FlashMsg cor='#f00' duration={5000}>
@@ -109,18 +112,21 @@ export function Register() {
               typeCampo='text' 
               autofocus={true} 
               onChanger={(e: any) => setInputName(e.target.value)}
+              color={cores.primaryColor}
             />
         
             <CampoForm 
               nameLabel='E-mail' 
               typeCampo='email' 
               onChanger={(e: any) => setInputEmail(e.target.value)}
+              color={cores.primaryColor}
             />
           
             <CampoForm 
               nameLabel='Password' 
               typeCampo='password' 
               onChanger={(e: any) => setInputPasswod(e.target.value)}
+              color={cores.primaryColor}
             />
 
             <ButtonForms name='Register' />

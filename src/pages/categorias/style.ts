@@ -26,10 +26,11 @@ export const Table = styled.table`
     thead {
       tr {
         th {
+          border-radius: 3px;
           height: 30px;
-          border: 1px solid #000;
+          border: 1px solid ${cores.primaryColor};
           width: 300px;
-          color: ${cores.primaryDarkColor}; 
+          color: ${cores.primaryColor};
         }
       }
     }
@@ -37,9 +38,10 @@ export const Table = styled.table`
     tbody {
       tr {
         td {
-          border: 1px solid #000;
+          border-radius: 3px;
+          border: 1px solid ${cores.primaryColor};
           max-width: 300px;
-          color: ${cores.primaryDarkColor};
+          color: ${cores.primaryColor};
           display: block;
           margin-bottom: 5px;
           padding: 2px;
@@ -51,12 +53,9 @@ export const Table = styled.table`
      height: 50px;
      width: 100%;
       tr {
+        border-radius: 3px;
         width: 100%;
         height: 100%;
-
-        td {
-          
-        }
       }
     }
 
@@ -74,11 +73,10 @@ export const LinkButtonTable = styled.td`
 
     height: 25px;
     background-color: ${cores.whiteColor};
-    color: ${cores.primaryDarkColor};
-    border: 1px solid ${cores.primaryDarkColor};
+    color: ${cores.primaryColor};
+    border: 1px solid ${cores.primaryColor};
 
     :hover {
-      border: 1px solid ${cores.primaryDarkColor};
       background-color: ${cores.primaryColor};
       color: ${cores.whiteColor};
       box-shadow: 1px 1px 7px 2px #00000052;

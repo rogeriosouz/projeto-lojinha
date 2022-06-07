@@ -1,14 +1,17 @@
 import Cookies from 'js-cookie';
 import { useEffect, useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { IoMdArrowBack } from "react-icons/io";
+
 import { ButtonForms } from '../../components/buttonForm';
 import { CampoForm } from '../../components/campoForm';
 import { FlashMsg } from '../../components/flasMsg';
 import { TitleForms } from '../../components/titleForm';
-import { Link } from 'react-router-dom';
 
 import axios from '../../services/axios';
-import voltar from '../../styles/img/voltar2.png';
+import * as cores from '../../config/colors';
+
 
 import {
   SecaoCadastroProduc,
@@ -118,10 +121,11 @@ export function CadastroProduto() {
         <Form onSubmit={(e) => handlesubmit(e, inputName, inputPrice, inputDescricao, inputCategoria)} >
           <VoltarLink>
             <Link to="/adm">
-              <img src={voltar} alt="voltar" />
+              <IoMdArrowBack fontSize={40} color={cores.primaryColor}/>
             </Link>
           </VoltarLink>
-          <TitleForms title='Cadastra Produto'/>
+
+          <TitleForms title='Cadastra Produto' color={cores.primaryColor}/>
 
           {amostraError ? (
             <FlashMsg 
@@ -139,12 +143,14 @@ export function CadastroProduto() {
               typeCampo='text' 
               autofocus={true} 
               onChanger={(e: any) => setInputName(e.target.value)}
+              color={cores.primaryColor}
               />
 
             <CampoForm 
               nameLabel='Price' 
               typeCampo='number' 
               onChanger={(e: any) => setInputPrice(e.target.value)}
+              color={cores.primaryColor}
               />
           </NamePrice>
 

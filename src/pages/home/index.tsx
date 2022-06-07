@@ -1,7 +1,8 @@
+import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
+
 import { Header } from '../../components/header';
 import { ProdutosPage } from '../../components/produtosPage';
-import { Link } from 'react-router-dom';
-import { useQuery } from 'react-query';
 
 import {
   HomeSection,

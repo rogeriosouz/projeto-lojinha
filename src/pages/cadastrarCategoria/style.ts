@@ -25,8 +25,10 @@ export const Form = styled.form`
   justify-content: center;
   align-items: flex-start;
   padding: 20px;
-  background-color: ${cores.primaryColor};
+  background-color: ${cores.whiteColor};
+  box-shadow: 1px 1px 20px 0px #0000004f;
   border-radius: 2px;
+  
   @media (max-width: 460px) {
     padding: 10px;
     border-radius: 0px;
@@ -46,12 +48,4 @@ export const VoltarLink = styled.div`
   position: absolute;
   top: 4px;
   left: 4px;
-  a {
-
-    img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-    }
-  }
 `;

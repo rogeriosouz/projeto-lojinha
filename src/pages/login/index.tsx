@@ -1,16 +1,16 @@
 import { useState, FormEvent } from 'react';
 import Cookies from 'js-cookie';
-import axios from '../../services/axios';
 import { validate } from 'email-validator';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { Header } from '../../components/header';
 import { CampoForm } from '../../components/campoForm';
-
 import { TitleForms } from '../../components/titleForm';
 import { ButtonForms } from '../../components/buttonForm';
-
 import { FlashMsg } from '../../components/flasMsg';
+
+import axios from '../../services/axios';
+import * as cores from '../../config/colors';
  
 import {
   SecaoLogin,
@@ -91,7 +91,7 @@ export function Login() {
       <SecaoLogin>
         <Conteudo>
           <Form onSubmit={(e) => handlesubmit(e, inputEmail, inputPassword)}>
-            <TitleForms title={'LOGIN'}/>
+            <TitleForms title={'LOGIN'} color={cores.primaryColor}/>
 
             {amostrarErr ? (
               <FlashMsg cor='#f00' duration={5000} children={msgErro.map(item => (
@@ -104,12 +104,14 @@ export function Login() {
               typeCampo='email'
               autofocus={true} 
               onChanger={(e: any) => setInputEmail(e.target.value)} 
+              color={cores.primaryColor}
             />
 
             <CampoForm 
               nameLabel='Password' 
               typeCampo='password'
               onChanger={(e: any) => setInputPassword(e.target.value)} 
+              color={cores.primaryColor}
             />
 
             <LinkRegister>

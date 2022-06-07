@@ -10,7 +10,7 @@ export const ButtonForm = styled.div`
     height: 100%;
     background-color: ${cores.whiteColor};
     border-radius: 2px;
-    border: 1px solid ${cores.secondColorr};
+    border: 1px solid ${cores.primaryColor};
     font-size: 1.1em;
     :hover {
       background-color: ${cores.primaryColor};

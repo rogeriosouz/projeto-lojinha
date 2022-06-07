@@ -29,15 +29,15 @@ export const Conteudo = styled.div`
       tr {
         th {
           height: 30px;
-          border: 1px solid ${cores.primaryDarkColor};
+          border: 1px solid ${cores.primaryColor};
           border-radius: 3px;
           width: 170px;
-          color: ${cores.primaryDarkColor};
+          color: ${cores.primaryColor};
           padding: 2px;
           margin-right: 10px;
 
           a {
-            color: ${cores.primaryColor};
+            color: blue;
             cursor: pointer;
             :hover {
               text-decoration: underline;
@@ -55,9 +55,9 @@ export const Conteudo = styled.div`
         td {
           padding: 5px;
           border-radius: 3px;
-          border: 1px solid ${cores.primaryDarkColor};
+          border: 1px solid ${cores.primaryColor};
           width: 170px;
-          color: ${cores.primaryDarkColor};
+          color: ${cores.primaryColor};
           margin-right: 10px;
         }
       }
@@ -70,7 +70,7 @@ export const Conteudo = styled.div`
       tr {
         td {
           width: 200px;
-          color: ${cores.whiteColor};
+          color: ${cores.primaryColor};
           padding: 10px 0px;
           margin-right: 10px;
           
@@ -82,11 +82,10 @@ export const Conteudo = styled.div`
 
             height: 25px;
             background-color: ${cores.whiteColor};
-            color: ${cores.primaryDarkColor};
-            border: 1px solid ${cores.primaryDarkColor};
+            color: ${cores.primaryColor};
+            border: 1px solid ${cores.primaryColor};
 
             :hover {
-              border: 1px solid ${cores.primaryDarkColor};
               background-color: ${cores.primaryColor};
               color: ${cores.whiteColor};
               box-shadow: 1px 1px 7px 2px #00000052;

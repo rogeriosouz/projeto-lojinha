@@ -2,13 +2,16 @@ import Cookies from 'js-cookie';
 import { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useQueryClient } from 'react-query';
+import { Link } from 'react-router-dom';
+
 import { ButtonForms } from '../../components/buttonForm';
 import { CampoForm } from '../../components/campoForm';
 import { FlashMsg } from '../../components/flasMsg';
 import { TitleForms } from '../../components/titleForm';
-import { Link } from 'react-router-dom';
+
 import axios from '../../services/axios';
-import voltar from '../../styles/img/voltar2.png';
+import { IoMdArrowBack } from "react-icons/io";
+import * as cores from '../../config/colors';
 
 import {
   SecaoCadastrarCategoria,
@@ -85,10 +88,10 @@ export function CadastrarCategoria() {
         <Form onSubmit={(e) => handleSubmit(e, inputCategoria)}>
           <VoltarLink>
             <Link to='/categorias'>
-              <img src={voltar} alt="voltar" />
+              <IoMdArrowBack fontSize={40} color={cores.primaryColor} />
             </Link>
           </VoltarLink>
-          <TitleForms title='categorias'/>
+          <TitleForms title='categorias' color={cores.primaryColor}/>
 
           {amostrarErro && (
             <FlashMsg children={msgError.map(item => (
@@ -101,6 +104,7 @@ export function CadastrarCategoria() {
           typeCampo='text' 
           autofocus={true} 
           onChanger={(e: any) => setInputCategoria(e.target.value)} 
+          color={cores.primaryColor}
           />
 
           <ButtonForms name='Cadastrar' />

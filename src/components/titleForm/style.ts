@@ -14,7 +14,7 @@ export const TitleForm = styled.div`
     }
   }
   h1 {
-    color: ${cores.whiteColor};
+    color: ${(props) => props.color};
     margin-top: 20px;
   }
 `;
