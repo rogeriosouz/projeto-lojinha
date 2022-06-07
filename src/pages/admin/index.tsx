@@ -1,11 +1,14 @@
 import Cookies from 'js-cookie';
 import { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import http from '../../services/axios';
+
 import { ButtonForms } from '../../components/buttonForm';
 import { CampoForm } from '../../components/campoForm';
 import { FlashMsg } from '../../components/flasMsg';
 import { TitleForms } from '../../components/titleForm';
-import axios from '../../services/axios';
+import * as cores from '../../config/colors';
 
 import {
   SecaoAdmin,
@@ -53,7 +56,7 @@ export function Admin() {
         email,
         password
       }
-      axios.post('/adminlogin', adm)
+      http.post('/adminlogin', adm)
       .then(response => {
         Cookies.set('tokenAdm', response.data.token, { expires: 2 });
         navigate('/');
@@ -76,7 +79,7 @@ export function Admin() {
     <SecaoAdmin>
       <Conteudo>
         <Form onSubmit={(e) => handlesubmit(e, inputEmail, inputPassword)}>
-            <TitleForms title='Adm'/>
+            <TitleForms title='Adm' color={cores.primaryColor}/>
 
             {amostraError ? (
               <FlashMsg duration={5000} children={errorMsg.map(item => (
@@ -89,12 +92,14 @@ export function Admin() {
             typeCampo='email'
             autofocus={true} 
             onChanger={(e: any) => setInputEmail(e.target.value)}
+            color={cores.primaryColor}
             />
 
             <CampoForm 
             nameLabel='Password' 
             typeCampo='password' 
             onChanger={(e: any) => setInputPasswrod(e.target.value)}
+            color={cores.primaryColor}
             />
 
             <ButtonForms name='Logar'/>

@@ -33,15 +33,15 @@ export const Conteudo = styled.div`
     align-items: center;
     img {
       width: 35px;
+      height: 35px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid ${cores.primaryColor};
+      transition: all 0.2s linear;
       
       :hover {
-        border: 0.5px solid ${cores.primaryColor};
         box-shadow: px 2px 14px 1px #00000057; 
+        transform: rotate(10deg) scale(1.2);
       }
-      transition: all 0.2s linear;
     }
   }
 `;
@@ -68,11 +68,11 @@ export const LinkLogin = styled.div`
 
 
 export const MenuHamburque = styled.div`
-  img {
-    width: 50px;
-    height: 50px;
+  button {
+    border: 0 none;
+    background-color: transparent;
   }
-  cursor: pointer;
+  
   display: none;
 
   @media (max-width: 500px) {

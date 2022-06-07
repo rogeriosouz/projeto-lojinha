@@ -5,6 +5,7 @@ export const SecaoPodutoAdm = styled.section`
   width: 100%;
   min-height: 100vh;
   background-color: #dfdfdf;
+  margin-top: 50px;
 `;
 
 export const Conteudo = styled.div`

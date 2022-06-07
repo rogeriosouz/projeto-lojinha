@@ -9,7 +9,7 @@ import { CampoForm } from '../../components/campoForm';
 import { FlashMsg } from '../../components/flasMsg';
 import { TitleForms } from '../../components/titleForm';
 
-import axios from '../../services/axios';
+import http from '../../services/axios';
 import { IoMdArrowBack } from "react-icons/io";
 import * as cores from '../../config/colors';
 
@@ -60,9 +60,8 @@ export function CadastrarCategoria() {
       const categorias = {
         categoria
       }
-      axios.post(`/categoria`,categorias, {
-        headers: { 'x-access-token': `${Cookies.get('tokenAdm')}`}
-      })
+
+      http.post(`/categoria`, categorias)
       .then((response) => {
         invalidate(); 
         navigate('/categorias');

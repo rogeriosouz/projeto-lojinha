@@ -5,12 +5,13 @@ import { Header } from '../../components/header';
 import { ProdutosPage } from '../../components/produtosPage';
 import { Categorias } from '../../components/categorias';
 
+import http from '../../services/axios';
+
 import {
   HomeSection,
   Conteudo,
 } from './style';
 
-import axios from '../../services/axios';
 
 type Produtos = {
   name: string,
@@ -19,7 +20,7 @@ type Produtos = {
 
 export function Home() {
   const { data, isFetching } = useQuery<Produtos[]>('produtosHome', async () => {
-    const response = await axios.get('/produto');
+    const response = await http.get('/produto');
     return response.data;
   });
 

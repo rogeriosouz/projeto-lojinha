@@ -9,7 +9,7 @@ import { CampoForm } from '../../components/campoForm';
 import { FlashMsg } from '../../components/flasMsg';
 import { TitleForms } from '../../components/titleForm';
 
-import axios from '../../services/axios';
+import http from '../../services/axios';
 import * as cores from '../../config/colors';
 
 
@@ -42,7 +42,7 @@ export function CadastroProduto() {
   let navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('/categoria').then(response => {
+    http.get('/categoria').then(response => {
       setCategorias(response.data);
     })
   }, [])
@@ -93,9 +93,7 @@ export function CadastroProduto() {
         "categoria": categoria
       }
 
-      axios.post(`/produto`, produtos, {
-        headers: { 'x-access-token': `${Cookies.get('tokenAdm')}`}
-      })
+      http.post(`/produto`, produtos)
       .then(response => {
         invalidate();
         navigate('/adm');

@@ -12,7 +12,7 @@ import {
 
 import { MenuLaterall } from '../menuLateral/style';
 import { useQuery } from 'react-query';
-import axios from '../../services/axios';
+import http from '../../services/axios';
 import { LinkMenuLateral } from '../linkMenuLateral';
 import { DiCreativecommons } from "react-icons/di";
 import { AiOutlineMenuUnfold, AiOutlineMenuFold, AiFillHome } from 'react-icons/all' 
@@ -25,7 +25,7 @@ export function Header() {
   const [menuLatera, setMenuLateral] = useState(false);
 
   const { data } = useQuery<Categoria[]>('categoriaHome', async () => {
-    const response = await axios.get('/categoria');
+    const response = await http.get('/categoria');
     return response.data
   })
 
@@ -35,19 +35,22 @@ export function Header() {
         <Conteudo>
           <MenuHamburque>
               {menuLatera ? (
-                <AiOutlineMenuFold 
-                fontSize={40}
-                color="#fff" 
-                onClick={() => setMenuLateral(!menuLatera)}
-                />
+                <button>
+                  <AiOutlineMenuFold 
+                  fontSize={40}
+                  color="#fff" 
+                  onClick={() => setMenuLateral(!menuLatera)}
+                  />
+                </button>
               ) : (
-                <AiOutlineMenuUnfold 
-                fontSize={40}
-                color="#fff" 
-                onClick={() => setMenuLateral(!menuLatera)}
-                />
+                <button>
+                  <AiOutlineMenuUnfold 
+                  fontSize={40}
+                  color="#fff" 
+                  onClick={() => setMenuLateral(!menuLatera)}
+                  />
+                </button>
               )}
-              
           </MenuHamburque>
 
           <Logo>

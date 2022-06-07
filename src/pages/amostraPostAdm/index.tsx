@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 
 import { Header } from '../../components/header';
 
-import axios from '../../services/axios';
+import http from '../../services/axios';
 
 import {
   SecaoPodutoAdm,
@@ -21,7 +21,7 @@ export type Produtos = {
 
 export function ProdutosAdm() {
   const { data, isFetching } = useQuery<Produtos[]>('produtos', async () => {
-    const response = await axios.get('/produto');
+    const response = await http.get('/produto');
     return response.data
   }, {
     staleTime: 1000 * 60 // 1 minute

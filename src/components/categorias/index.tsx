@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
-import axios from '../../services/axios';
+import http from '../../services/axios';
 
 import {
   Container,
@@ -14,7 +14,7 @@ type Categoria = {
 export function Categorias() {
 
   const { data, isFetching } = useQuery<Categoria[]>('cate', async () => {
-    const response = await axios.get('/categoria');
+    const response = await http.get('/categoria');
     return response.data;
   })
 

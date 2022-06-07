@@ -9,7 +9,7 @@ import { Header } from '../../components/header';
 import { TitleForms } from '../../components/titleForm';
 import { FlashMsg } from '../../components/flasMsg';
 
-import axios from '../../services/axios';
+import http from '../../services/axios';
 import * as cores from '../../config/colors';
 
 
@@ -72,7 +72,7 @@ export function Register() {
         email,
         password
       }
-      axios.post('/register', user)
+      http.post('/register', user)
       .then(response => {
         Cookies.set('id', response.data.id, { expires: 2 });
         Cookies.set('name', name, { expires: 2 });

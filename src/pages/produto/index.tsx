@@ -1,6 +1,7 @@
+import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { Header } from '../../components/header';
-import { useFetch } from '../../hooks/useFethc';
+import http from '../../services/axios';
 
 type Produto = {
   descricao: string
@@ -19,7 +20,11 @@ import {
 
 export function Produto() {
   const { name } = useParams();
-  const { data, isFetching } = useFetch<Produto>(`/produto/:${name?.replace(':', '')}`)
+
+  const { data, isFetching } = useQuery<Produto>('produto/prod', async () => {
+    const response = await http.get(`/produto/:${name?.replace(':', '')}`)
+    return response.data
+  })
 
   return (
     <>
