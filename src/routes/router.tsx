@@ -24,7 +24,7 @@ export function AppRouters() {
       <BrowserRouter>
         <Header />
         <Routes>
-          {Cookies.get('id') ? (
+          {Cookies.get('tokenUser') ? (
               <Route path='/person' element={ <Person /> } />
             ) : (
               <>
@@ -45,9 +45,7 @@ export function AppRouters() {
           )}
          
           <Route path='/' element={ <Home /> }/>
-
           <Route path='/produtoPesquisa/:categoria' element={ <ProdutosPesquisa /> }/>
-
           <Route path='/produto/:name' element={ <Produto /> }/>
         </Routes>
       </BrowserRouter>

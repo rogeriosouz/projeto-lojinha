@@ -65,10 +65,10 @@ export function Login() {
         password
       }
 
-      axios.post('/login',user)
+      axios.post('/login', user)
       .then(response => {
-        Cookies.set('id', response.data.id, { expires: 2 });
-        Cookies.set('name', response.data.name, { expires: 2 });
+        Cookies.set('tokenUser', response.data.token, { expires: 2 });
+        Cookies.set('name', response.data.user.name, { expires: 2 });
         navigate('/');
       }) .catch(erro => {
         setAmostrarErr(true);
