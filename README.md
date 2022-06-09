@@ -9,4 +9,4 @@ User with login and register with cookies
 
 project made with node js api
 
-react como front-end
+react as frontend
