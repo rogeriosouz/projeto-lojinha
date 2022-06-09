@@ -1,10 +1,12 @@
-# 👀 projeto-lojinha-iniciante
+# little shop project
 
-lojinha feita em react-ts com vite
-back-end feito em node-js, mongodb de base de dados
-apresentaçao, tem uma pag de home nao finalizei ainda, pag de adm onde ele pode cadastrar produtos e cadastra categorias
-User com login e register com cokies
+# technology: react ts - front
 
-projeto feito com api node js
+little shop made in react-ts with vite
+backend made in node-js, database mongodb
+presentation, there's a home page I haven't finished yet, adm page where he can register products and register categories
+User with login and register with cookies
+
+project made with node js api
 
 react como front-end
