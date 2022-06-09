@@ -19,14 +19,14 @@ export const Conteudo = styled.div`
     width: 400px;
     height: 300px;
     padding: 10px;
-    background-color: ${cores.primaryColor};
+    background-color: ${cores.whiteColor};
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
     p {
-      color: ${cores.whiteColor};
+      color: ${cores.primaryColor};
     }
 
     img {

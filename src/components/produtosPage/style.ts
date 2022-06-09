@@ -4,7 +4,7 @@ import * as cores from '../../config/colors';
 export const Container = styled.div`
   max-width: 250px;
   min-width: 230px;
-  height: 308px;
+  height: 408px;
   display: flex;
   margin: auto;
   align-items: center;
@@ -22,6 +22,10 @@ export const Conteudo = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  p {
+    color: ${cores.primaryColor};
+  }
   :hover {
     div {
       button {
@@ -34,10 +38,11 @@ export const Conteudo = styled.div`
 
 export const Img = styled.div`
   width: 100%;
-  height: 60%;
+  height: 80%;
   background-color: ${cores.whiteColor};
 
   img {
+    object-fit: cover;
     width: 100%;
     height: 100%;
     margin-bottom: 10px;
@@ -61,7 +66,7 @@ export const Button = styled.div`
     color: ${cores.whiteColor};
 
     :hover {
-      color:  ${cores.primaryDarkColor};
+      color: ${cores.primaryDarkColor};
     }
   }
 `;
@@ -72,6 +77,6 @@ export const Price = styled.div`
   padding-left: 10px;
 
   p {
-    color: #000;
+    color: ${cores.primaryColor};
   }
 `;

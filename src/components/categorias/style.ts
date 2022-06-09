@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 import * as cores from '../../config/colors';
-
-
+// #694ea30a
 export const Container = styled.div`
   margin-top: 50px;
   width: 100%;
-  height: 50px;
-  background-color: #694ea30a;
+  height: 40px;
+  background-color: ${cores.primaryColor};
   @media (max-width: 500px) {
     display: none;
   }
@@ -27,9 +26,9 @@ export const Wapre = styled.div`
     gap: 20px;
     
     a {
-      color: ${cores.primaryColor};
+      color: ${cores.whiteColor};
       width: 100%;
-      height: 50px;
+      height: 100%;
 
       display: flex;
       justify-content: center;
@@ -39,8 +38,8 @@ export const Wapre = styled.div`
       transition: all 0.3s linear;
 
       :hover {
-        background-color: ${cores.primaryColor};
-        color: ${cores.whiteColor}
+        background-color:${cores.whiteColor};
+        color: ${cores.primaryColor}
       }
     }
   }

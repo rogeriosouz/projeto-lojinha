@@ -21,9 +21,9 @@ import {
 export function Produto() {
   const { name } = useParams();
 
-  const { data, isFetching } = useQuery<Produto>('produto/prod', async () => {
-    const response = await http.get(`/produto/:${name?.replace(':', '')}`)
-    return response.data
+  const { data, isFetching } = useQuery<Produto>('produtoUne', async () => {
+    const response = await http.get(`/produto/${name?.replace(':', '')}`)
+    return response.data.produto
   })
 
   return (

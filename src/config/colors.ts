@@ -1,4 +1,4 @@
-export const primaryColor = '#53008F';
+export const primaryColor = '#01BDF0';
 /* #00DDE0 //// #01BDF0  #FF5745 #7588E0 #01DB3B  #8700DB df538b  #323B61*/
 export const primaryDarkColor = '#00161F';
 export const whiteColor = '#ffff';

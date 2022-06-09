@@ -14,8 +14,7 @@ import { MenuLaterall } from '../menuLateral/style';
 import { useQuery } from 'react-query';
 import http from '../../services/axios';
 import { LinkMenuLateral } from '../linkMenuLateral';
-import { DiCreativecommons } from "react-icons/di";
-import { AiOutlineMenuUnfold, AiOutlineMenuFold, AiFillHome } from 'react-icons/all'; 
+import { AiOutlineMenuUnfold, AiOutlineMenuFold, AiFillHome, DiReact } from 'react-icons/all'; 
 
 type Categoria = {
   categoria: string
@@ -55,7 +54,7 @@ export function Header() {
 
           <Logo>
             <Link to="/">
-              <DiCreativecommons fontSize={50} color='#fff'/>
+              <DiReact fontSize={50} color='#fff' />
             </Link>
           </Logo>
 

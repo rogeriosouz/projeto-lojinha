@@ -1,4 +1,5 @@
 import { ButtonForms } from '../../components/buttonForm';
+
 import {
   PrsonSecao,
   Conteudo
@@ -11,7 +12,7 @@ export function Person() {
   let navigate = useNavigate();
 
   function Logoof() {
-    Cookies.remove('id');
+    Cookies.remove('tokenUser');
     Cookies.remove('name');
     navigate('/')
   }

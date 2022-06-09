@@ -16,7 +16,7 @@ export function ProdutosPage(props: Props) {
     <Container>
       <Conteudo>
         <Img>
-          <img src={`http://source.unsplash.com/random/200x200?r=${props.name}`} alt="img" />
+          <img src={`http://source.unsplash.com/random/250x400?r=${props.name}`} alt="img" />
         </Img>
 
         <p>{props.name}</p>
