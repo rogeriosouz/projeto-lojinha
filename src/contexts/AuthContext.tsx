@@ -41,21 +41,19 @@ export function AuthProvider({ children }: any) {
   const isAuthenticated = !!user;
 
   useEffect(() => {
-    if(Cookies.get('idUser')) {
-      http.get(`/user/getUserRefres/:${Cookies.get('idUser')}`).then(response => {
+    if(Cookies.get('tokenUser')) {
+      http.get(`/user/getUserRefres`).then(response => {
         setUser(response.data)
       })
     }
   }, [])
 
   async function singIn({email, password}: SingInData) {
-    if(Cookies.get('idUser')) {
-      Cookies.remove('idUser');
-    }
     try {
       const response = await http.post('/login', { email, password });
       Cookies.set('tokenUser', response.data.token, { expires: 2 });
-      Cookies.set('idUser', response.data.user.id, { expires: 2 });
+
+      http.defaults.headers.common['authorization-user'] = response.data.token as string;
 
       setUser(response.data.user);
       navigate('/');
@@ -71,13 +69,12 @@ export function AuthProvider({ children }: any) {
 
 
   async function register({name, email, password}: RegisterType) {
-    if(Cookies.get('idUser')) {
-      Cookies.remove('idUser');
-    }
     try {
       const response = await http.post('/register', { name, email, password });
       Cookies.set('tokenUser', response.data.token, { expires: 2 });
-      Cookies.set('idUser', response.data.user.id, { expires: 2 });
+
+      http.defaults.headers.common['authorization-user'] = response.data.token as string;
+
       setUser(response.data.user);
       navigate('/');
     } catch (error: any) {
@@ -92,7 +89,16 @@ export function AuthProvider({ children }: any) {
 
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, user, singIn, errors, amostrarError, setAmostrarError, setErrors, register }}>
+    <AuthContext.Provider value={{ 
+      isAuthenticated, 
+      user, 
+      singIn, 
+      errors, 
+      amostrarError, 
+      setAmostrarError, 
+      setErrors, 
+      register 
+    }}>
       {children}
     </AuthContext.Provider>
   )
