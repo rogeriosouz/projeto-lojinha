@@ -4,7 +4,7 @@ export const FlasMsgs = styled.div`
   width: 90%;
   background-color: ${prop => prop.color};
   color: #fff;
-  height: 50px;
+  min-height: 50px;
   border-radius: 3px;
   margin: auto;
   margin-bottom: 20px;
@@ -14,6 +14,4 @@ export const FlasMsgs = styled.div`
   align-items: center;
   overflow: visible;
   padding: 20px;
-
-
 `;

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Header } from '../../components/header';
 import { ProdutosPage } from '../../components/produtosPage';
 import { Categorias } from '../../components/categorias';
-
 import http from '../../services/axios';
 
 import {

@@ -1,17 +1,12 @@
-import { useState, FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, FormEvent, useContext } from 'react';
 import { validate } from 'email-validator';
-import Cookies from 'js-cookie';
 
 import { ButtonForms } from '../../components/buttonForm';
 import { CampoForm } from '../../components/campoForm';
 import { Header } from '../../components/header';
 import { TitleForms } from '../../components/titleForm';
 import { FlashMsg } from '../../components/flasMsg';
-
-import http from '../../services/axios';
 import * as cores from '../../config/colors';
-
 
 import {
   SecaoRegister,
@@ -19,76 +14,50 @@ import {
   Form
 } from './style';
 
+import { AuthContext } from '../../contexts/AuthContext';
+
 export function Register() {
   const [inputEmail, setInputEmail] = useState('');
   const [inputPasswod, setInputPasswod] = useState('');
   const [inputName, setInputName] = useState('');
 
-  const [msgErrors, setMsgErrors] = useState(['']);
-  const [amostraError, setAmostraError] = useState(false);
-  let navigate = useNavigate();
+  const { register, errors, amostrarError, setAmostrarError, setErrors } = useContext(AuthContext);
 
-
-  function handlesubmit(e: FormEvent, name: string, email: string, password: string) {
+  async function handlesubmit(e: FormEvent,  name: string, email: string, password: string) {
     e.preventDefault();
-    const error = [];
+    const erros = [];
 
-    if(name === '' || email === '' || password === '') {
-      setMsgErrors(['Campos em branco!!']);
-      setAmostraError(true);
-
-      setTimeout(() => {
-        setAmostraError(false);
-      }, 5000)
-      return;
-    }
-    
-
-    if(password.length < 5 || password.length > 50) {
-      error.push('Password pressisa ter de 5 a 50 caracteres!!')
+    if(!email || !password || !name) {
+      erros.push('Campos em branco!');
     }
 
     if(name.length < 5 || name.length > 50) {
-      error.push('Name Presisa ter de 3 a 50 caracteres!!')
+      erros.push('Name presisa ter de 5 a 50 caracteres!');
+    }
+
+    if(password.length < 5 || password.length > 50) {
+      erros.push('Password presisa ter de 5 a 50 caracteres!');
     }
 
     if(!validate(email)) {
-      error.push('email invalido')
+      erros.push('Email invalido!');
     }
 
-    if(error.length > 0) {
-      setMsgErrors(error);
-      setAmostraError(true);
+    if(erros.length > 0) {
+      setAmostrarError(true);
+      setErrors(erros);
 
       setTimeout(() => {
-        setAmostraError(false);
+        setAmostrarError(false);
       }, 5000)
       return;
     }
 
     try {
-      const user = {
-        name,
-        email,
-        password
-      }
-      http.post('/register', user)
-      .then(response => {
-        Cookies.set('id', response.data.id, { expires: 2 });
-        Cookies.set('name', name, { expires: 2 });
-        navigate('/');
-      }).catch(err => {
-        setMsgErrors(err.response.data.Errors);
-        setAmostraError(true);
-
-        setTimeout(() => {
-          setAmostraError(false);
-        }, 5000);
-        return;
-      })
+      await register({ name, email, password });
     } catch (error) {
-      console.log(null);
-    } 
+      console.log(null)
+    }
   }
 
   return (
@@ -99,10 +68,10 @@ export function Register() {
           <Form onSubmit={(e) => handlesubmit(e, inputName, inputEmail, inputPasswod)} >
             <TitleForms title='REGISTER' color={cores.primaryColor}/> 
 
-            {amostraError ? (
-              <FlashMsg cor='#f00' duration={5000}>
-                {msgErrors.map(item => (
-                    <p>{item}</p>
+            {amostrarError ? (
+              <FlashMsg cor='#f00'>
+                {errors.map(item => (
+                    <p key={item}>{item}</p>
                 ))}
               </FlashMsg>
             ) : ''}

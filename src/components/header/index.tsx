@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
@@ -21,24 +21,25 @@ type Categoria = {
 }
 
 export function Header() {
-  const [menuLatera, setMenuLateral] = useState(false);
+  const [menuLateral, setMenuLateral] = useState(false);
 
   const { data } = useQuery<Categoria[]>('categoriaHome', async () => {
     const response = await http.get('/categoria');
     return response.data
   })
 
+
   return (
     <>
       <HeaderCabecalho>
         <Conteudo>
           <MenuHamburque>
-              {menuLatera ? (
+              {menuLateral ? (
                 <button>
                   <AiOutlineMenuFold 
                   fontSize={40}
                   color="#fff" 
-                  onClick={() => setMenuLateral(!menuLatera)}
+                  onClick={() => setMenuLateral(!menuLateral)}
                   />
                 </button>
               ) : (
@@ -46,7 +47,7 @@ export function Header() {
                   <AiOutlineMenuUnfold 
                   fontSize={40}
                   color="#fff" 
-                  onClick={() => setMenuLateral(!menuLatera)}
+                  onClick={() => setMenuLateral(!menuLateral)}
                   />
                 </button>
               )}
@@ -71,7 +72,7 @@ export function Header() {
           </nav>
         </Conteudo>
       </HeaderCabecalho>
-      {menuLatera && (
+      {menuLateral && (
         <MenuLaterall>
           <LinkMenuLateral 
             click={() => setMenuLateral(false)} 
@@ -80,6 +81,7 @@ export function Header() {
               <AiFillHome />
             )}
           />
+
           {data?.map(cate => (
             <LinkMenuLateral 
               click={() => setMenuLateral(false)} 
@@ -89,6 +91,9 @@ export function Header() {
           ))}
         </MenuLaterall>
       )}
+      
+ 
+    
       
     </>
   );

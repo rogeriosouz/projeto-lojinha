@@ -1,3 +1,6 @@
+import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import { useContext } from 'react';
 import { ButtonForms } from '../../components/buttonForm';
 
 import {
@@ -5,15 +8,15 @@ import {
   Conteudo
 } from './style';
 
-import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
 
 export function Person() {
+  const { user } = useContext(AuthContext);
   let navigate = useNavigate();
 
   function Logoof() {
     Cookies.remove('tokenUser');
-    Cookies.remove('name');
+    Cookies.remove('idUser');
     navigate('/')
   }
 
@@ -22,7 +25,7 @@ export function Person() {
       <Conteudo>
         <div>
           <img src="http://source.unsplash.com/random/200x200?r=1" alt="img" />
-          <p>Olá {Cookies.get('name')}</p>
+          <p>ola {user?.name}</p>
           <div>
             <ButtonForms name='Logoof' onClick={() => Logoof()}/>
           </div>

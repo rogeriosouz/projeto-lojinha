@@ -1,7 +1,7 @@
 import { MenuLaterall } from './style';
 
 type Props = {
-  children: string
+  children: string;
 }
 
 export function MenuLateral(props: Props) {

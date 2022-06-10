@@ -18,36 +18,40 @@ import { CadastrarCategoria } from '../pages/cadastrarCategoria';
 import { Produto } from '../pages/produto';
 import { ProdutosPesquisa } from '../pages/produtoPesquisa';
 
+import { AuthProvider } from '../contexts/AuthContext';
+
 export function AppRouters() {
   return (
     <>
       <BrowserRouter>
-        <Header />
-        <Routes>
-          {Cookies.get('tokenUser') ? (
-              <Route path='/person' element={ <Person /> } />
-            ) : (
-              <>
-                <Route path='/login' element={ <Login /> }/>
-                <Route path='/register' element={ <Register/> }/>
-              </>
-          )}
+        <AuthProvider>
+          <Header />
+          <Routes>
+            {Cookies.get('tokenUser') ? (
+                <Route path='/person' element={ <Person /> } />
+              ) : (
+                <>
+                  <Route path='/login' element={ <Login /> }/>
+                  <Route path='/register' element={ <Register/> }/>
+                </>
+            )}
 
-          {Cookies.get('tokenAdm') ? (
-            <>
-              <Route path='/adm' element={ <ProdutosAdm /> } />
-              <Route path='/cadastrarProduto' element={ <CadastroProduto /> } />
-              <Route path='/cadastrarCategoria' element={ <CadastrarCategoria /> } />
-              <Route path='/categorias' element={ <Categorias /> } />
-            </>
-          ) : (
-            <Route path='/adm' element={ <Admin /> } />
-          )}
-         
-          <Route path='/' element={ <Home /> }/>
-          <Route path='/produtoPesquisa/:categoria' element={ <ProdutosPesquisa /> }/>
-          <Route path='/produto/:name' element={ <Produto /> }/>
-        </Routes>
+            {Cookies.get('tokenAdm') ? (
+              <>
+                <Route path='/adm' element={ <ProdutosAdm /> } />
+                <Route path='/cadastrarProduto' element={ <CadastroProduto /> } />
+                <Route path='/cadastrarCategoria' element={ <CadastrarCategoria /> } />
+                <Route path='/categorias' element={ <Categorias /> } />
+              </>
+            ) : (
+              <Route path='/adm' element={ <Admin /> } />
+            )}
+          
+            <Route path='/' element={ <Home /> }/>
+            <Route path='/produtoPesquisa/:categoria' element={ <ProdutosPesquisa /> }/>
+            <Route path='/produto/:name' element={ <Produto /> }/>
+          </Routes>
+        </AuthProvider>
       </BrowserRouter>
     </>
   );
