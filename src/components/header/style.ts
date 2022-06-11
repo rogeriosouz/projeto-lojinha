@@ -8,6 +8,7 @@ export const HeaderCabecalho = styled.header`
   position: fixed;
   top: 0;
   z-index: 3;
+  transition: all 0.3s linear;
 `;
 
 export const Conteudo = styled.div`
@@ -39,7 +40,6 @@ export const Conteudo = styled.div`
       transition: all 0.2s linear;
       
       :hover {
-        box-shadow: px 2px 14px 1px #00000057; 
         transform: rotate(10deg) scale(1.2);
       }
     }

@@ -54,6 +54,22 @@ export const Conteudo = styled.div`
       align-items: flex-start;
       tr {
         td {
+          position: relative;
+          div {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            top: 50%;
+            bottom: 50%;
+            right: 10px;
+            left: calc(100% - 40px);
+
+            button {
+              background: transparent;
+              border: 0 none;
+            }
+          }
           padding: 5px;
           border-radius: 3px;
           border: 1px solid ${cores.primaryColor};
@@ -99,3 +115,4 @@ export const Conteudo = styled.div`
 
   }
 `;
+

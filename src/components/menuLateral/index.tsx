@@ -2,10 +2,11 @@ import { MenuLaterall } from './style';
 
 type Props = {
   children: string;
+  clikc: boolean;
 }
 
 export function MenuLateral(props: Props) {
   return (
-    <MenuLaterall>{props.children}</MenuLaterall>
+    <MenuLaterall click={props.clikc}>{props.children}</MenuLaterall>
   )
 }

@@ -1,17 +1,13 @@
-import Cookies from 'js-cookie';
-import { useEffect, useState, FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { IoMdArrowBack } from "react-icons/io";
-
-import { ButtonForms } from '../../components/buttonForm';
-import { CampoForm } from '../../components/campoForm';
-import { FlashMsg } from '../../components/flasMsg';
-import { TitleForms } from '../../components/titleForm';
-
+import { FormEvent, useEffect, useState } from 'react';
+import { IoMdArrowBack } from 'react-icons/io';
+import { useQueryClient } from 'react-query';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import http from '../../services/axios';
-import * as cores from '../../config/colors';
+import  * as cores from '../../config/colors';
 
+type Categorias = {
+  categoria: string,
+}
 
 import {
   SecaoCadastroProduc,
@@ -21,17 +17,14 @@ import {
   VoltarLink,
   OpcaoInput,
   NamePrice
-} from './style';
-
-import { useQueryClient } from 'react-query';
-
-type Categorias = {
-  categoria: string,
-}
+} from '../cadastroProduto/style';
+import { TitleForms } from '../../components/titleForm';
+import { FlashMsg } from '../../components/flasMsg';
+import { CampoForm } from '../../components/campoForm';
+import { ButtonForms } from '../../components/buttonForm';
 
 
-
-export function CadastroProduto() {
+export function EditProduto() {
   const [inputName, setInputName] = useState('');
   const [inputPrice, setInputPrice] = useState(0);
   const [inputDescricao, setInputDescricao] = useState('');
@@ -40,6 +33,11 @@ export function CadastroProduto() {
   const [errorMsg, setErrorMsg] = useState(['']);
   const [amostraError, setAmostraError] = useState(false);
   const [categorias, setCategorias] = useState<Categorias[]>([]);
+
+  const { nameUP, prace, descricao } = useParams();
+
+
+
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -87,14 +85,14 @@ export function CadastroProduto() {
     }
 
     try {
-      const produtos = {
+      const Novoprodutos = {
         "name": name,
         "prace": Number(prace),
         "descricao": descricao,
         "categoria": categoria
       }
 
-      http.post(`/produto`, produtos)
+      http.put(`/produto/:${nameUP}`, Novoprodutos)
       .then(response => {
         invalidate();
         navigate('/adm');
@@ -124,7 +122,7 @@ export function CadastroProduto() {
             </Link>
           </VoltarLink>
 
-          <TitleForms title='Cadastra Produto' color={cores.primaryColor}/>
+          <TitleForms title={`Editar: ${nameUP?.replace(':', '')}`} color={cores.primaryColor}/>
 
           {amostraError ? (
             <FlashMsg 
@@ -142,6 +140,7 @@ export function CadastroProduto() {
               autofocus={true} 
               onChanger={(e: any) => setInputName(e.target.value)}
               color={cores.primaryColor}
+              placeholder={nameUP?.replace(':', '')}
               />
 
             <CampoForm 
@@ -149,6 +148,7 @@ export function CadastroProduto() {
               typeCampo='number' 
               onChanger={(e: any) => setInputPrice(e.target.value)}
               color={cores.primaryColor}
+              placeholder={prace?.replace(':', '')}
               />
           </NamePrice>
 
@@ -157,6 +157,7 @@ export function CadastroProduto() {
             <textarea 
               id='descricao' 
               onChange={(e: any) => setInputDescricao(e.target.value)}
+              placeholder={descricao?.replace(':', '')}
             >
             </textarea>
           </TextArea>
@@ -171,7 +172,7 @@ export function CadastroProduto() {
             </select>
           </OpcaoInput>
 
-          <ButtonForms name='Cadastra'/>
+          <ButtonForms name='Editar'/>
         </Form>
       </Conteudo>
     </SecaoCadastroProduc>

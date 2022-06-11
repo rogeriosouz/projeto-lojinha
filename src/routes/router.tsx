@@ -19,6 +19,7 @@ import { Produto } from '../pages/produto';
 import { ProdutosPesquisa } from '../pages/produtoPesquisa';
 
 import { AuthProvider } from '../contexts/AuthContext';
+import { EditProduto } from '../pages/editProduto';
 
 export function AppRouters() {
   return (
@@ -42,6 +43,8 @@ export function AppRouters() {
                 <Route path='/cadastrarProduto' element={ <CadastroProduto /> } />
                 <Route path='/cadastrarCategoria' element={ <CadastrarCategoria /> } />
                 <Route path='/categorias' element={ <Categorias /> } />
+                <Route path='/produtoEdit/:nameUP/:prace/:descricao' element={ <EditProduto /> } />
+                <Route path='/produtoDelete' element={ <EditProduto /> } />
               </>
             ) : (
               <Route path='/adm' element={ <Admin /> } />

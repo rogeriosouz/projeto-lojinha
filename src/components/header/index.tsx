@@ -14,7 +14,7 @@ import { MenuLaterall } from '../menuLateral/style';
 import { useQuery } from 'react-query';
 import http from '../../services/axios';
 import { LinkMenuLateral } from '../linkMenuLateral';
-import { AiOutlineMenuUnfold, AiOutlineMenuFold, AiFillHome, DiReact } from 'react-icons/all'; 
+import { AiFillHome, DiReact, FiX, GoThreeBars } from 'react-icons/all'; 
 
 type Categoria = {
   categoria: string
@@ -36,16 +36,16 @@ export function Header() {
           <MenuHamburque>
               {menuLateral ? (
                 <button>
-                  <AiOutlineMenuFold 
-                  fontSize={40}
+                  <FiX 
+                  fontSize={30}
                   color="#fff" 
                   onClick={() => setMenuLateral(!menuLateral)}
                   />
                 </button>
               ) : (
                 <button>
-                  <AiOutlineMenuUnfold 
-                  fontSize={40}
+                  <GoThreeBars 
+                  fontSize={30}
                   color="#fff" 
                   onClick={() => setMenuLateral(!menuLateral)}
                   />
@@ -72,8 +72,7 @@ export function Header() {
           </nav>
         </Conteudo>
       </HeaderCabecalho>
-      {menuLateral && (
-        <MenuLaterall>
+        <MenuLaterall click={menuLateral}>
           <LinkMenuLateral 
             click={() => setMenuLateral(false)} 
             to='/' 
@@ -90,7 +89,7 @@ export function Header() {
             />
           ))}
         </MenuLaterall>
-      )}
+
       
  
     
