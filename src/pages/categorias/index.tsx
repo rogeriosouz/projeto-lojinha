@@ -1,21 +1,25 @@
-import { Link } from 'react-router-dom';
-import { useQuery } from 'react-query';
+import { Link, useNavigate } from 'react-router-dom';
+import { useQuery, useQueryClient } from 'react-query';
 import { IoMdArrowBack } from "react-icons/io";
 
 import * as cores from '../../config/colors';
 
 import axios from '../../services/axios';
+import { FiEdit, MdOutlineDeleteForever } from 'react-icons/all';
 
 import {
   SecaoCategorias,
   Conteudo,
   Table,
   ImgLink,
-  LinkButtonTable
+  LinkButtonTable,
+  Delete
 } from './style';
+import http from '../../services/axios';
 
 export type Categoria = {
   categoria: string,
+  _id: string;
 }
 
 export function Categorias() {
@@ -25,6 +29,16 @@ export function Categorias() {
   }, {
     staleTime: 1000 * 60 // 1 minute
   });
+  const client = useQueryClient();
+
+  async function invalidate() {
+    await client.invalidateQueries(['categorias']);
+  }
+
+  async function deleteCategoria(id: string) {
+    await http.delete(`/categoria/${id}`);
+    invalidate();
+  }
 
   return (
     <SecaoCategorias>
@@ -50,7 +64,17 @@ export function Categorias() {
                 <td>Caregando...</td>
               )}
               {data?.map(item => (
-                <td key={item.categoria}>{item.categoria}</td>
+                <td key={item.categoria}>
+                  {item.categoria}
+                  <div>
+                    <Link to={`/categorias/:${item._id}/:${item.categoria}`}>
+                      <FiEdit color='#00f'/>
+                    </Link>
+                    <Delete onClick={() => deleteCategoria(item._id)}>
+                      <MdOutlineDeleteForever color='#f00'/>
+                    </Delete>
+                  </div>
+                </td>
                 ))}
               </>
             </tr>

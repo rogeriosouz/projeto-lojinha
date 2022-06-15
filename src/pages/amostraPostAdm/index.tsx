@@ -37,9 +37,8 @@ export function ProdutosAdm() {
     await client.invalidateQueries('produtos');
   }
 
-
-  async function deletProduto(name: string) {
-    await http.delete(`/produto/:${name}`);
+  async function deletProduto(IdDell: string) {
+    await http.delete(`/produto/:${IdDell}`);
     invalidate();
   }
 
@@ -67,10 +66,12 @@ export function ProdutosAdm() {
                       <td>
                         {produ.name} 
                         <div>
-                          <a href={`/produtoEdit/:${produ.name}/:${produ.prace}/:${produ.descricao}`}>
+                          <a 
+                          href={`/produtoEdit/:${produ.name}/:${produ.prace}/:${produ.descricao}/:${produ._id}`}
+                          >
                             <FiEdit color='#00f'/>
                           </a>
-                          <button onClick={() => deletProduto(produ.name)}>
+                          <button onClick={() => deletProduto(produ._id as string)}>
                             <MdOutlineDeleteForever fontSize={15} color='#f00'/>
                           </button>
                         </div>

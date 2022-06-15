@@ -1,15 +1,12 @@
-import { useState, FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { FormEvent, useState } from 'react';
+import { IoMdArrowBack } from 'react-icons/io';
 import { useQueryClient } from 'react-query';
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { ButtonForms } from '../../components/buttonForm';
 import { CampoForm } from '../../components/campoForm';
 import { FlashMsg } from '../../components/flasMsg';
 import { TitleForms } from '../../components/titleForm';
-
 import http from '../../services/axios';
-import { IoMdArrowBack } from "react-icons/io";
 import * as cores from '../../config/colors';
 
 import {
@@ -17,14 +14,15 @@ import {
   Conteudo,
   Form,
   VoltarLink
-} from './style';
+} from '../cadastrarCategoria/style';
 
-
-
-export function CadastrarCategoria() {
+export function EditCategoria() {
   const [inputCategoria, setInputCategoria ] = useState('');
   const [msgError, setMmsgError] = useState(['']);
   const [amostrarErro, setAmostrarErro] = useState(false);
+
+  const { categoria, _id } = useParams();
+
   let navigate = useNavigate();
 
   const client = useQueryClient();
@@ -60,7 +58,7 @@ export function CadastrarCategoria() {
         categoria
       }
 
-      http.post(`/categoria`, categorias)
+      http.put(`/categoria/${_id}`, categorias)
       .then((response) => {
         invalidate(); 
         navigate('/categorias');
@@ -89,7 +87,7 @@ export function CadastrarCategoria() {
               <IoMdArrowBack fontSize={40} color={cores.primaryColor} />
             </Link>
           </VoltarLink>
-          <TitleForms title='categorias' color={cores.primaryColor}/>
+          <TitleForms title={`editar Categoria: ${categoria?.replace(':', '')}`} color={cores.primaryColor}/>
 
           {amostrarErro && (
             <FlashMsg children={msgError.map(item => (
@@ -98,14 +96,15 @@ export function CadastrarCategoria() {
           )}
 
           <CampoForm 
-          nameLabel='Categoria' 
-          typeCampo='text' 
-          autofocus={true} 
-          onChanger={(e: any) => setInputCategoria(e.target.value)} 
-          color={cores.primaryColor}
+            nameLabel='Categoria' 
+            typeCampo='text' 
+            autofocus={true} 
+            onChanger={(e: any) => setInputCategoria(e.target.value)} 
+            color={cores.primaryColor}
+            placeholder={categoria?.replace(':', '')}
           />
 
-          <ButtonForms name='Cadastrar' />
+          <ButtonForms name='Editar' />
         </Form>
       </Conteudo>
     </SecaoCadastrarCategoria>

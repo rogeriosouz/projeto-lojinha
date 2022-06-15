@@ -12,7 +12,6 @@ import { TitleForms } from '../../components/titleForm';
 import http from '../../services/axios';
 import * as cores from '../../config/colors';
 
-
 import {
   SecaoCadastroProduc,
   Conteudo,
@@ -28,8 +27,6 @@ import { useQueryClient } from 'react-query';
 type Categorias = {
   categoria: string,
 }
-
-
 
 export function CadastroProduto() {
   const [inputName, setInputName] = useState('');

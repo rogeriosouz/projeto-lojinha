@@ -34,7 +34,7 @@ export function EditProduto() {
   const [amostraError, setAmostraError] = useState(false);
   const [categorias, setCategorias] = useState<Categorias[]>([]);
 
-  const { nameUP, prace, descricao } = useParams();
+  const { nameUP, prace, descricao, _id } = useParams();
 
 
 
@@ -92,20 +92,20 @@ export function EditProduto() {
         "categoria": categoria
       }
 
-      http.put(`/produto/:${nameUP}`, Novoprodutos)
-      .then(response => {
-        invalidate();
-        navigate('/adm');
-      })
-      .catch(error => {
-        setErrorMsg(error.response.data.Errors);
-        setAmostraError(true);
+      http.put(`/produto/${_id}`, Novoprodutos)
+        .then(response => {
+          invalidate();
+          navigate('/adm');
+        })
+        .catch(error => {
+          setErrorMsg(error.response.data.Errors);
+          setAmostraError(true);
 
-        setTimeout(() => {
-          setAmostraError(false);
-        }, 5000);
-        return;
-      })
+          setTimeout(() => {
+            setAmostraError(false);
+          }, 5000);
+          return;
+        })
     } catch (error) {
       console.log(null);
     }

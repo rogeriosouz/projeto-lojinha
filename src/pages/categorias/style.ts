@@ -45,6 +45,17 @@ export const Table = styled.table`
           display: block;
           margin-bottom: 5px;
           padding: 2px;
+          position: relative;
+
+          div {
+            cursor: pointer;
+            position: absolute;
+            top: 20%;
+            left: 85%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
         }
       }
     }
@@ -95,4 +106,9 @@ export const ImgLink = styled.td`
     height: 40px;
     border-radius: 50%;
   }
+`;
+
+
+export const Delete = styled.a`
+  margin-left: 20px;
 `;
